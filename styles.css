@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Schoolbell';
+  margin: 0;
+}
+
+header {
+  background-color: #E76F51;
+  color: #264653;
+  font-family: 'Schoolbell';
+}
+
+main {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-template-rows: 25% 25% 25% 25%;
+  min-height: 5000px;
+}
+
+.wardrobe {
+  border: solid 2px red;
+  grid-column: 1;
+}
+
+.hats {
+  border: solid 2px green;
+  grid-row: 1;
+}
+
+.clothes {
+  border: solid 2px pink;
+  grid-row: 2;
+}
+
+.accessories {
+  border: solid 2px blue;
+  grid-row: 3;
+}
+
+.backgrounds {
+  border: solid 2px orange;
+  grid-row: 4;
+}
+
+.bear {
+  border: solid 2px yellow;
+  grid-column: 2;
+}
+
+.saved-outfits {
+  border: solid 2px black;
+  grid-column: 3;
+}
