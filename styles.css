@@ -13,10 +13,13 @@ header {
 
 main {
   display: grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-template-rows: 25% 25% 25% 25%;
 }
 
 .wardrobe {
   border: solid 2px red;
+  grid-column: 1;
 }
 
 .hats {
@@ -37,8 +40,10 @@ main {
 
 .bear {
   border: solid 2px yellow;
+  grid-column: 2;
 }
 
 .saved-outfits {
   border: solid 2px black;
+  grid-column: 3;
 }
