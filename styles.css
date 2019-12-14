@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Schoolbell';
+  margin: 0;
+}
+
+header {
+  background-color: #E76F51;
+  color: #264653;
+  font-family: 'Schoolbell';
+}
+
+main {
+  display: grid;
+}
+
+.wardrobe {
+  border: solid 2px red;
+}
+
+.hats {
+  border: solid 2px green;
+}
+
+.clothes {
+  border: solid 2px pink;
+}
+
+.accessories {
+  border: solid 2px blue;
+}
+
+.backgrounds {
+  border: solid 2px orange;
+}
+
+.bear {
+  border: solid 2px yellow;
+}
+
+.saved-outfits {
+  border: solid 2px black;
+}
