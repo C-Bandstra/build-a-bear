@@ -15,6 +15,7 @@ main {
   display: grid;
   grid-template-columns: 30% 40% 30%;
   grid-template-rows: 25% 25% 25% 25%;
+  min-height: 5000px;
 }
 
 .wardrobe {
@@ -24,18 +25,22 @@ main {
 
 .hats {
   border: solid 2px green;
+  grid-row: 1;
 }
 
 .clothes {
   border: solid 2px pink;
+  grid-row: 2;
 }
 
 .accessories {
   border: solid 2px blue;
+  grid-row: 3;
 }
 
 .backgrounds {
   border: solid 2px orange;
+  grid-row: 4;
 }
 
 .bear {
