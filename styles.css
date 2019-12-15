@@ -18,29 +18,67 @@ main {
   min-height: 5000px;
 }
 
+.hat-button,
+.clothes-button,
+.accessories-button,
+.backgrounds-button {
+  height: 30%;
+  width: 20%;
+  border-radius: 35%;
+  font-size: 1.30em;
+  font-weight: bold;
+  box-shadow: 5px 10px rgb(220,220,220,0.75);
+  margin-top: 3%;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+.hat-button {
+  background-color: #264653;
+  color: #F4A261;
+}
+
+.clothes-button {
+  background-color: #2A9D8F;
+  color: #E9C46A;
+}
+
+.accessories-button {
+  background-color: #F4A261;
+  color: #2A9D8F;
+}
+
+.backgrounds-button {
+  background-color: #E9C46A;
+  color: #264653;
+}
+
 .wardrobe {
-  border: solid 2px red;
   grid-column: 1;
 }
 
 .hats {
-  border: solid 2px green;
+  border-bottom: 4px solid rgb(220,220,220,0.45);
   grid-row: 1;
+  height: 15%;
 }
 
 .clothes {
   border: solid 2px pink;
   grid-row: 2;
+  height: 15%;
 }
 
 .accessories {
   border: solid 2px blue;
   grid-row: 3;
+  height: 15%;
 }
 
 .backgrounds {
   border: solid 2px orange;
   grid-row: 4;
+  height: 15%;
 }
 
 .bear {
