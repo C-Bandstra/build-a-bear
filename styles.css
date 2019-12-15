@@ -18,6 +18,7 @@ main {
   min-height: 5000px;
 }
 
+.button,
 .hat-button,
 .clothes-button,
 .accessories-button,
@@ -51,6 +52,10 @@ main {
 .backgrounds-button {
   background-color: #E9C46A;
   color: #264653;
+}
+
+#save-button{
+  background-color: #E76F51;
 }
 
 .wardrobe {
