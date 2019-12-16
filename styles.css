@@ -18,6 +18,7 @@ main {
   min-height: 5000px;
 }
 
+.button,
 .hat-button,
 .clothes-button,
 .accessories-button,
@@ -53,6 +54,10 @@ main {
   color: #264653;
 }
 
+#save-button{
+  background-color: #E76F51;
+}
+
 .wardrobe {
   grid-column: 1;
 }
@@ -84,11 +89,26 @@ main {
 .bear {
   border: solid 2px yellow;
   grid-column: 2;
+  padding-top: 5%;
 }
 
 .saved-outfits {
   border: solid 2px black;
   grid-column: 3;
+  grid-row: 1;
+}
+
+.outfit-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 20px;
+  text-align: center;
+}
+
+.outfit-input input {
+  height: 50px;
+  width: 80%;
 }
 
 .saved-header {
