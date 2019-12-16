@@ -110,3 +110,35 @@ main {
   height: 50px;
   width: 80%;
 }
+
+.saved-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  border: solid 2px cadetblue;
+  width: 70%;
+  align-items: center;
+  display: flex;
+  margin-top: 6%;
+  height: 4em;
+}
+
+.outfit-name {
+  margin-left: 5%;
+}
+
+.close-icon {
+  height: 25px;
+  width: 25px;
+  margin-left: 60%;
+  margin-top: -8%
+}
