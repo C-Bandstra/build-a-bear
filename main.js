@@ -1,15 +1,18 @@
+
+var closet = [];
 document.onload = generateId();
-var outfits =[];
+//rename backt to outfits before turning it//
 
-var saveBtn = document.querySelector('#save-button', saveOutfit);
+var saveBtn = document.querySelector('#save-button', createOutfit);
 
-function saveOutfit(id){
-  var outfit= new Outfit(id, title, garments, background);
-  outfits.push(outfit);
+function createOutfit(id) {
+  var outfit = new Outfit(id);
+  closet.push(outfit);
+  console.log(outfit)
 }
 
 function generateId() {
-var id= Math.random().toString(36).substr(2, 9);
+var id = Math.random().toString(36).substr(2, 9);
 console.log(id);
-return id;
+createOutfit(id);
 };
