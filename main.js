@@ -4,7 +4,7 @@ var outfits =[];
 var saveBtn = document.querySelector('#save-button', saveOutfit);
 
 function saveOutfit(id){
-  var outfit= new Outfit(id, title, garments, background);
+  var outfit= new Outfit(id, title, garments);
   outfits.push(outfit);
 }
 
