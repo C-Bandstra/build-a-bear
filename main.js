@@ -17,9 +17,20 @@ function styleBear() {
 
 
 function highlightButton(){
+  var activeButton = event.target.classList.value;
+    console.log(activeButton);
+    console.log(event)
+    var test = ('.'+ activeButton);
+  // var garment = document.querySelectorAll(`.${activeButton}`);
+    console.log(test);
+    activeButton.classList.remove('highlight');
   event.target.classList.add('highlight');
-    
+    console.log(event);
+
+
 }
+
+
 
 
 function createOutfit(id) {
