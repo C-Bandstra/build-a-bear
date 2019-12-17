@@ -12,13 +12,13 @@ wardrobe.addEventListener('click', styleBear);
 function styleBear() {
   var item = event.target.getAttribute('id');
   outfit.addGarment(item);
-  unhighlightButton(event);
+  highlightButton(event);
 
 }
 
   var hats = document.querySelectorAll('.hat-button');
 
-  function unhighlightButton() {
+  function highlightButton() {
     // debugger
     for(var i = 0; i < hats.length; i++) {
       hats[i].classList.remove('highlight');
