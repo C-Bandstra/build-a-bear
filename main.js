@@ -1,15 +1,27 @@
+
+var closet = [];
+var outfit
 document.onload = generateId();
-var outfits =[];
+//rename backt to outfits before turning it//
 
-var saveBtn = document.querySelector('#save-button', saveOutfit);
+var saveBtn = document.querySelector('#save-button', createOutfit);
+var wardrobe = document.querySelector('.wardrobe');
+wardrobe.addEventListener('click', styleBear);
 
-function saveOutfit(id){
-  var outfit= new Outfit(id, title, garments, background);
-  outfits.push(outfit);
+function styleBear() {
+  var item = event.target.getAttribute('id');
+  outfit.addGarment(item);
+}
+
+
+function createOutfit(id) {
+  outfit = new Outfit(id);
+  closet.push(outfit);
+  console.log(outfit)
 }
 
 function generateId() {
-var id= Math.random().toString(36).substr(2, 9);
+var id = Math.random().toString(36).substr(2, 9);
 console.log(id);
-return id;
+createOutfit(id);
 };
