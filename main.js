@@ -11,6 +11,14 @@ wardrobe.addEventListener('click', styleBear);
 function styleBear() {
   var item = event.target.getAttribute('id');
   outfit.addGarment(item);
+  highlightButton(event);
+
+}
+
+
+function highlightButton(){
+  event.target.classList.add('highlight');
+    
 }
 
 
