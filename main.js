@@ -28,7 +28,7 @@ function styleBear() {
     } else if(event.target.classList.contains('backgrounds-button')) {
         highlightBackgroundsButton(event);
     }
-}
+ }
 
   var hats = document.querySelectorAll('.hat-button');
 
@@ -49,6 +49,27 @@ var clothes = document.querySelectorAll('.clothes-button')
     }
     event.target.classList.add('highlight');
   }
+
+var accessories = document.querySelectorAll('.accessories-button')
+
+  function highlightAccessoriesButton() {
+
+    for(var i = 0; i < accessories.length; i++) {
+      accessories[i].classList.remove('highlight');
+    }
+    event.target.classList.add('highlight');
+  }
+
+var backgrounds = document.querySelectorAll('.backgrounds-button')
+
+  function highlightBackgroundsButton() {
+
+    for(var i = 0; i < backgrounds.length; i++) {
+      backgrounds[i].classList.remove('highlight');
+    }
+    event.target.classList.add('highlight');
+  }
+
 
 
 
