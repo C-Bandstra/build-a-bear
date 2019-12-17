@@ -8,27 +8,52 @@ var saveBtn = document.querySelector('#save-button', createOutfit);
 var wardrobe = document.querySelector('.wardrobe');
 wardrobe.addEventListener('click', styleBear);
 
+
 function styleBear() {
   var item = event.target.getAttribute('id');
   outfit.addGarment(item);
-  highlightButton(event);
+  unhighlightButton(event);
 
 }
 
+  var hats = document.querySelectorAll('.hat-button');
 
-function highlightButton(){
-  var activeButton = event.target.classList.value;
-    console.log(activeButton);
-    console.log(event)
-    var test = ('.'+ activeButton);
+  function unhighlightButton() {
+    // debugger
+    for(var i = 0; i < hats.length; i++) {
+      hats[i].classList.remove('highlight');
+    }
+    event.target.classList.add('highlight');
+  }
+
+
+
+
+// function highlightButton(){
+  // var activeButton = event.target;
+  //   console.log(activeButton);
+  //   console.log(event)
+  //   var test = ('.'+ activeButton);
   // var garment = document.querySelectorAll(`.${activeButton}`);
-    console.log(test);
-    activeButton.classList.remove('highlight');
-  event.target.classList.add('highlight');
-    console.log(event);
+  //   console.log(test);
+  //   activeButton.classList.remove('highlight');
+  // event.target.classList.add('highlight');
+  //   console.log(event);
 
+  //   var hats = document.querySelector('.hats');
+  //   var hatBtn = hats.getElementsByClassName('hat-button');
+  //
+  //   function test() {
+  //   for (var i = 0; i < hatBtn.length; i++) {
+  //     hatBtn[i].addEventListener('click', function() {
+  //       var activeHatBtn = document.getElementsByClassName('highlight');
+  //       activeHatBtn[0].className = activeHatBtn[0].className.replace('highlight', '');
+  //       this.className += 'highlight';
+  //     });
+  //   }
+  // }
 
-}
+// }
 
 
 
