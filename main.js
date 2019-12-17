@@ -4,6 +4,14 @@ document.onload = generateId();
 //rename backt to outfits before turning it//
 
 var saveBtn = document.querySelector('#save-button', createOutfit);
+var wardrobe = document.querySelector('.wardrobe');
+
+wardrobe.addEventListener('click', styleBear);
+
+function styleBear() {
+  console.log(event.target.getAttribute('id'));
+}
+
 
 function createOutfit(id) {
   var outfit = new Outfit(id);
