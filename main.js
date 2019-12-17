@@ -12,16 +12,36 @@ wardrobe.addEventListener('click', styleBear);
 function styleBear() {
   var item = event.target.getAttribute('id');
   outfit.addGarment(item);
-  highlightButton(event);
-
+  pickCategory();
 }
+
+  function pickCategory() {
+    if(event.target.classList.contains('hat-button')) {
+      highlightHatButton(event);
+
+    } else if(event.target.classList.contains('clothes-button')) {
+        highlightClothesButton(event);
+
+    } else if()
+  }
+
 
   var hats = document.querySelectorAll('.hat-button');
 
-  function highlightButton() {
+  function highlightHatButton() {
     // debugger
     for(var i = 0; i < hats.length; i++) {
       hats[i].classList.remove('highlight');
+    }
+    event.target.classList.add('highlight');
+  }
+
+var clothes = document.querySelectorAll('.clothes-button')
+
+  function highlightClothesButton() {
+
+    for(var i = 0; i < clothes.length; i++) {
+      clothes[i].classList.remove('highlight');
     }
     event.target.classList.add('highlight');
   }
