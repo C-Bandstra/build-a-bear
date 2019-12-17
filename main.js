@@ -22,9 +22,13 @@ function styleBear() {
     } else if(event.target.classList.contains('clothes-button')) {
         highlightClothesButton(event);
 
-    } else if()
-  }
+    } else if(event.target.classList.contains('accessories-button')) {
+        highlightAccessoriesButton(event);
 
+    } else if(event.target.classList.contains('backgrounds-button')) {
+        highlightBackgroundsButton(event);
+    }
+}
 
   var hats = document.querySelectorAll('.hat-button');
 
