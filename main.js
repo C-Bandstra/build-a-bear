@@ -11,13 +11,14 @@ wardrobe.addEventListener('click', styleBear);
 
 function styleBear() {
   var item = event.target.getAttribute('id');
-  var category = item.split('-');
-  // console.log(category);
+  var [, category] = item.split('-');
+  console.log(category);
   var oldGarment = outfit.garments.find(function(garment){
-    if(garment.includes(category[1])){
+    if(garment.includes(category)){
       return true;
     }
   })
+  console.log(oldGarment);
   if (oldGarment != undefined){
     outfit.removeGarment(oldGarment)
   }
@@ -28,6 +29,7 @@ function styleBear() {
   function pickCategory() {
     if(event.target.classList.contains('hat-button')) {
       highlightHatButton(event);
+      // highlightCorrectButton(classList)
 
     } else if(event.target.classList.contains('clothes-button')) {
         highlightClothesButton(event);
@@ -43,6 +45,7 @@ function styleBear() {
   var hats = document.querySelectorAll('.hat-button');
 
   function highlightHatButton() {
+    // switch statement to deternine which category, plug into hats. if classlist = hats, do hat highlight
     for(var i = 0; i < hats.length; i++) {
       hats[i].classList.remove('highlight');
     }
