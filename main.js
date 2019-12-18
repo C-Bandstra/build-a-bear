@@ -13,6 +13,7 @@ function styleBear() {
   var item = event.target.getAttribute('id');
   outfit.addGarment(item);
   pickCategory();
+  addHatGarment(event);
 }
 
   function pickCategory() {
@@ -73,7 +74,13 @@ var backgrounds = document.querySelectorAll('.backgrounds-button')
 
 
 
-
+function addHatGarment(event) {
+  console.log(event);
+  var hatGarment = document.querySelector(`#${event.target.dataset.id}`);
+  if(event.target.innerText === `${event.target.innerText}`) {
+    hatGarment.classList.toggle('hide')
+  }
+}
 // function highlightButton(){
   // var activeButton = event.target;
   //   console.log(activeButton);
@@ -99,6 +106,15 @@ var backgrounds = document.querySelectorAll('.backgrounds-button')
   // }
 
 // }
+
+// function createTophat() {
+//   const tophatImg = document.createElement('img');
+//   tophatImg.className = 'tophatImage';
+//   tophatImg.innerHTML = `
+//   <img src="assets/bab-assets/tophat.png">`
+// }
+
+
 
 
 
