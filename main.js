@@ -67,18 +67,28 @@ var backgrounds = document.querySelectorAll('.backgrounds-button')
 
     for(var i = 0; i < backgrounds.length; i++) {
       backgrounds[i].classList.remove('highlight');
+
     }
     event.target.classList.add('highlight');
   }
 
 
+  var clothesImage = document.querySelectorAll('.image');
 
+  var hat = document.querySelectorAll('.hat');
 
 function addHatGarment(event) {
   console.log(event);
   var hatGarment = document.querySelector(`#${event.target.dataset.id}`);
+  hat.forEach(node => {
+    // node.classList.style.display = 'none';
+    if(!node.classList.contains('hide')) {
+      node.classList.add('hide') };
+  });
+    // hat.classList.style.display = 'none';
+  // }
   if(event.target.innerText === `${event.target.innerText}`) {
-    hatGarment.classList.toggle('hide')
+    hatGarment.classList.toggle('hide');
   }
 }
 // function highlightButton(){
