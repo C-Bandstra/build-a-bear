@@ -155,3 +155,7 @@ main {
 .highlight {
   background-color: purple;
 }
+
+.hide {
+  display: none;
+}
