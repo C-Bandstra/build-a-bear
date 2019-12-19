@@ -10,20 +10,20 @@ wardrobe.addEventListener('click', styleBear);
 
 
 function styleBear() {
-  var item = event.target.getAttribute('id');
-  var [, category] = item.split('-');
-  console.log(category);
-  var oldGarment = outfit.garments.find(function(garment){
-    if(garment.includes(category)){
-      return true;
-    }
-  })
-  console.log(oldGarment);
-  if (oldGarment != undefined){
-    outfit.removeGarment(oldGarment)
+var item = event.target.getAttribute('id');
+var [, category] = item.split('-');
+console.log(category);
+var oldGarment = outfit.garments.find(function(garment){
+  if(garment.includes(category)){
+    return true;
   }
-  outfit.addGarment(item);
-  pickCategory();
+})
+console.log(oldGarment);
+if (oldGarment != undefined){
+  outfit.removeGarment(oldGarment)
+}
+outfit.addGarment(item);
+pickCategory();
 }
 
   function pickCategory() {
@@ -117,7 +117,7 @@ var backgrounds = document.querySelectorAll('.backgrounds-button')
 
 function createOutfit(id) {
   outfit = new Outfit(id);
-  closet.push(outfit);
+  // closet.push(outfit);
   console.log(outfit)
 }
 
