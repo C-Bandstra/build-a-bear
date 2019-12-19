@@ -28,7 +28,10 @@ function styleBearHats() {
   var item = event.target.getAttribute('id');
   outfit.addGarment(item);
   pickCategory();
-  addHatGarment(event);
+  console.log(event.target.tagName)
+ if(event.target.tagName == 'BUTTON') {
+ addHatGarment(event);
+}
   // addTopsGarment(event);
   // displayImage(event);
 }
