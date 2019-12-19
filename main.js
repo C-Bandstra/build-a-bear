@@ -5,16 +5,46 @@ document.onload = generateId();
 //rename backt to outfits before turning it//
 
 var saveBtn = document.querySelector('#save-button', createOutfit);
-var wardrobe = document.querySelector('.wardrobe');
-wardrobe.addEventListener('click', styleBear);
+
+var hats = document.querySelector('.hats')
+var clothes = document.querySelector('.clothes')
+var accessories = document.querySelector('.accessories')
+var backgrounds = document.querySelector('.backgrounds')
 
 
-function styleBear() {
+hats.addEventListener('click', styleBearHats);
+clothes.addEventListener('click', styleBearTops);
+// accessories.addEventListener('click', styleBearAccessories);
+// backgrounds.addEventListener('click', styleBearBackgrounds);
+
+
+function styleBearHats() {
   var item = event.target.getAttribute('id');
   outfit.addGarment(item);
   pickCategory();
   addHatGarment(event);
+  // addTopsGarment(event);
+  // displayImage(event);
 }
+
+function styleBearTops() {
+  var item = event.target.getAttribute('id');
+  outfit.addGarment(item);
+  pickCategory();
+  // addHatGarment(event);
+  addTopsGarment(event);
+  // displayImage(event);
+}
+
+// function styleBearAccessories() {
+//   var item = event.target.getAttribute('id');
+//   outfit.addGarment(item);
+//   pickCategory();
+//   // addHatGarment(event);
+//   addTopsGarment(event);
+//   // displayImage(event);
+// }
+
 
   function pickCategory() {
     if(event.target.classList.contains('hat-button')) {
@@ -34,14 +64,17 @@ function styleBear() {
   var hats = document.querySelectorAll('.hat-button');
 
   function highlightHatButton() {
-    // debugger
-    for(var i = 0; i < hats.length; i++) {
-      hats[i].classList.remove('highlight');
+    if(event.target.classList.contains('highlight')) {
+      event.target.classList.remove('highlight');
+    } else {
+      for(var i = 0; i < hats.length; i++) {
+        hats[i].classList.remove('highlight');
+      }
+      event.target.classList.add('highlight');
     }
-    event.target.classList.add('highlight');
   }
 
-var clothes = document.querySelectorAll('.clothes-button')
+var clothes = document.querySelectorAll('.clothes-button');
 
   function highlightClothesButton() {
 
@@ -72,25 +105,48 @@ var backgrounds = document.querySelectorAll('.backgrounds-button')
     event.target.classList.add('highlight');
   }
 
-
-  var clothesImage = document.querySelectorAll('.image');
+  // function displayImage(event) {
+  //   if(event.target.classList.contains("hat")) {
+  //     addHatGarment(event);
+  //   } if(event.target.classList.contains("clothes")) {
+  //     addTopsGarment(event);
+  //   }
+  //
+  // }
 
   var hat = document.querySelectorAll('.hat');
 
 function addHatGarment(event) {
   console.log(event);
+
   var hatGarment = document.querySelector(`#${event.target.dataset.id}`);
+
   hat.forEach(node => {
-    // node.classList.style.display = 'none';
     if(!node.classList.contains('hide')) {
       node.classList.add('hide') };
   });
-    // hat.classList.style.display = 'none';
-  // }
+
   if(event.target.innerText === `${event.target.innerText}`) {
     hatGarment.classList.toggle('hide');
   }
 }
+
+var tops = document.querySelectorAll(".tops");
+
+function addTopsGarment(event) {
+
+  console.log(event);
+  var topsGarment = document.querySelector(`#${event.target.dataset.id}`);
+  tops.forEach(node => {
+    if(!node.classList.contains('hide')) {
+      node.classList.add('hide') };
+  });
+
+  if(event.target.innerText === `${event.target.innerText}`) {
+    topsGarment.classList.toggle('hide');
+  }
+}
+
 // function highlightButton(){
   // var activeButton = event.target;
   //   console.log(activeButton);
