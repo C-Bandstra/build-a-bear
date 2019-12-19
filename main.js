@@ -16,6 +16,9 @@ var clothesBtns = document.querySelectorAll('.clothes-button');
 var accessoriesBtns = document.querySelectorAll('.accessories-button')
 var hatImages = document.querySelectorAll('.hat');
 var topImages = document.querySelectorAll(".tops");
+// var hatArray = Array.from(hatImages);
+
+
 
 
 hatSection.addEventListener('click', styleBearHats);
@@ -24,34 +27,21 @@ clothesSection.addEventListener('click', styleBearTops);
 // backgrounds.addEventListener('click', styleBearBackgrounds);
 
 
-function styleBearHats() {
-  var item = event.target.getAttribute('id');
-  outfit.addGarment(item);
-  pickCategory();
-  console.log(event.target.tagName)
- if(event.target.tagName == 'BUTTON') {
- addHatGarment(event);
-}
-  // addTopsGarment(event);
-  // displayImage(event);
-}
+  function styleBearHats() {
+    var item = event.target.getAttribute('id');
+    outfit.addGarment(item);
+    pickCategory();
+    console.log(event.target.tagName)
+    if(event.target.tagName == 'BUTTON') {
+      showImage();
+    }
+  }
 
-function styleBearTops() {
-  var item = event.target.getAttribute('id');
-  outfit.addGarment(item);
-  pickCategory();
-  addTopsGarment(event);
-  // displayImage(event);
-}
-
-// function styleBearAccessories() {
-//   var item = event.target.getAttribute('id');
-//   outfit.addGarment(item);
-//   pickCategory();
-//   // addHatGarment(event);
-//   addTopsGarment(event);
-//   // displayImage(event);
-// }
+  function styleBearTops() {
+    var item = event.target.getAttribute('id');
+    outfit.addGarment(item);
+    pickCategory();
+  }
 
   function pickCategory() {
     if(event.target.classList.contains('hat-button')) {
@@ -97,38 +87,22 @@ function styleBearTops() {
     event.target.classList.add('highlight');
   }
 
-  function addHatGarment(event) {
-    console.log(event);
-    var hatGarment = document.querySelector(`#${event.target.dataset.id}`);
-    hatImages.forEach(node => {
-      if(!node.classList.contains('hide')) {
-      node.classList.add('hide')
+  function showImage() {
+    console.log(event.target.dataset.id)
+    for(var i = 0; i < hatImages.length; i++) {
+      if ((hatImages[i].classList.contains('show-image')) && (hatImages[i].classList.contains('hat'))) {
+        hatImages[i].classList.remove('show-image');
+      } else if(hatImages[i].id === event.target.dataset.id) {
+        hatImages[i].classList.add('show-image')
       }
-    });
-      if(event.target.innerText === `${event.target.innerText}`) {
-        hatGarment.classList.toggle('hide');
+    }
   }
-}
-  // hat.forEach(node => {
-  //   console.log(!node.classList.contains('hide'))
-  //   if((event.target.dataset.id === node.id) && (!node.classList.contains('hide')))  {
-  //     debugger
-  //     node.classList.add('hide');
-  //   }
-  // })
 
-  function addTopsGarment(event) {
-    console.log(event);
-    var topsGarment = document.querySelector(`#${event.target.dataset.id}`);
-    tops.forEach(node => {
-      if(!node.classList.contains('hide')) {
-        node.classList.add('hide') };
-      });
 
-      if(event.target.innerText === `${event.target.innerText}`) {
-    topsGarment.classList.toggle('hide');
-      }
-}
+
+
+
+
 
 // function highlightButton(){
   // var activeButton = event.target;
