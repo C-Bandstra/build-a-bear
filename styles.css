@@ -162,6 +162,10 @@ main {
   background-color: purple;
 }
 
-.hide {
-  display: none;
+.hide-image {
+  visibility: hidden;
+}
+
+.show-image {
+  visibility: visible;
 }
