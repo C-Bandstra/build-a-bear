@@ -123,12 +123,22 @@ function addHatGarment(event) {
 
   hat.forEach(node => {
     if(!node.classList.contains('hide')) {
-      node.classList.add('hide') };
+      node.classList.add('hide')
+    }
   });
 
   if(event.target.innerText === `${event.target.innerText}`) {
     hatGarment.classList.toggle('hide');
   }
+
+  // hat.forEach(node => {
+  //   console.log(!node.classList.contains('hide'))
+  //   if((event.target.dataset.id === node.id) && (!node.classList.contains('hide')))  {
+  //     debugger
+  //     node.classList.add('hide');
+  //   }
+  // })
+
 }
 
 var tops = document.querySelectorAll(".tops");
