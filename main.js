@@ -1,19 +1,25 @@
 
 var closet = [];
 var outfit
+
 document.onload = generateId();
 //rename backt to outfits before turning it//
 
 var saveBtn = document.querySelector('#save-button', createOutfit);
+var hatSection = document.querySelector('.hats')
+var clothesSection = document.querySelector('.clothes')
+var accessoriesSection = document.querySelector('.accessories')
+var backgroundsSection = document.querySelector('.backgrounds')
+var hatBtns = document.querySelectorAll('.hat-button');
+var backgroundBtns = document.querySelectorAll('.backgrounds-button')
+var clothesBtns = document.querySelectorAll('.clothes-button');
+var accessoriesBtns = document.querySelectorAll('.accessories-button')
+var hatImages = document.querySelectorAll('.hat');
+var topImages = document.querySelectorAll(".tops");
 
-var hats = document.querySelector('.hats')
-var clothes = document.querySelector('.clothes')
-var accessories = document.querySelector('.accessories')
-var backgrounds = document.querySelector('.backgrounds')
 
-
-hats.addEventListener('click', styleBearHats);
-clothes.addEventListener('click', styleBearTops);
+hatSection.addEventListener('click', styleBearHats);
+clothesSection.addEventListener('click', styleBearTops);
 // accessories.addEventListener('click', styleBearAccessories);
 // backgrounds.addEventListener('click', styleBearBackgrounds);
 
@@ -31,7 +37,6 @@ function styleBearTops() {
   var item = event.target.getAttribute('id');
   outfit.addGarment(item);
   pickCategory();
-  // addHatGarment(event);
   addTopsGarment(event);
   // displayImage(event);
 }
@@ -45,92 +50,62 @@ function styleBearTops() {
 //   // displayImage(event);
 // }
 
-
   function pickCategory() {
     if(event.target.classList.contains('hat-button')) {
       highlightHatButton(event);
-
     } else if(event.target.classList.contains('clothes-button')) {
         highlightClothesButton(event);
-
     } else if(event.target.classList.contains('accessories-button')) {
         highlightAccessoriesButton(event);
-
     } else if(event.target.classList.contains('backgrounds-button')) {
         highlightBackgroundsButton(event);
     }
  }
 
-  var hats = document.querySelectorAll('.hat-button');
-
   function highlightHatButton() {
     if(event.target.classList.contains('highlight')) {
       event.target.classList.remove('highlight');
     } else {
-      for(var i = 0; i < hats.length; i++) {
-        hats[i].classList.remove('highlight');
+      for(var i = 0; i < hatBtns.length; i++) {
+        hatBtns[i].classList.remove('highlight');
       }
       event.target.classList.add('highlight');
     }
   }
 
-var clothes = document.querySelectorAll('.clothes-button');
-
   function highlightClothesButton() {
-
-    for(var i = 0; i < clothes.length; i++) {
-      clothes[i].classList.remove('highlight');
+    for(var i = 0; i < clothesBtns.length; i++) {
+      clothesBtns[i].classList.remove('highlight');
     }
     event.target.classList.add('highlight');
   }
-
-var accessories = document.querySelectorAll('.accessories-button')
 
   function highlightAccessoriesButton() {
-
-    for(var i = 0; i < accessories.length; i++) {
-      accessories[i].classList.remove('highlight');
+    for(var i = 0; i < accessoriesBtns.length; i++) {
+      accessoriesBtns[i].classList.remove('highlight');
     }
     event.target.classList.add('highlight');
   }
-
-var backgrounds = document.querySelectorAll('.backgrounds-button')
 
   function highlightBackgroundsButton() {
-
-    for(var i = 0; i < backgrounds.length; i++) {
-      backgrounds[i].classList.remove('highlight');
-
+    for(var i = 0; i < backgroundBtns.length; i++) {
+      backgroundBtns[i].classList.remove('highlight');
     }
     event.target.classList.add('highlight');
   }
 
-  // function displayImage(event) {
-  //   if(event.target.classList.contains("hat")) {
-  //     addHatGarment(event);
-  //   } if(event.target.classList.contains("clothes")) {
-  //     addTopsGarment(event);
-  //   }
-  //
-  // }
-
-  var hat = document.querySelectorAll('.hat');
-
-function addHatGarment(event) {
-  console.log(event);
-
-  var hatGarment = document.querySelector(`#${event.target.dataset.id}`);
-
-  hat.forEach(node => {
-    if(!node.classList.contains('hide')) {
+  function addHatGarment(event) {
+    console.log(event);
+    var hatGarment = document.querySelector(`#${event.target.dataset.id}`);
+    hatImages.forEach(node => {
+      if(!node.classList.contains('hide')) {
       node.classList.add('hide')
-    }
-  });
-
-  if(event.target.innerText === `${event.target.innerText}`) {
-    hatGarment.classList.toggle('hide');
+      }
+    });
+      if(event.target.innerText === `${event.target.innerText}`) {
+        hatGarment.classList.toggle('hide');
   }
-
+}
   // hat.forEach(node => {
   //   console.log(!node.classList.contains('hide'))
   //   if((event.target.dataset.id === node.id) && (!node.classList.contains('hide')))  {
@@ -139,22 +114,17 @@ function addHatGarment(event) {
   //   }
   // })
 
-}
+  function addTopsGarment(event) {
+    console.log(event);
+    var topsGarment = document.querySelector(`#${event.target.dataset.id}`);
+    tops.forEach(node => {
+      if(!node.classList.contains('hide')) {
+        node.classList.add('hide') };
+      });
 
-var tops = document.querySelectorAll(".tops");
-
-function addTopsGarment(event) {
-
-  console.log(event);
-  var topsGarment = document.querySelector(`#${event.target.dataset.id}`);
-  tops.forEach(node => {
-    if(!node.classList.contains('hide')) {
-      node.classList.add('hide') };
-  });
-
-  if(event.target.innerText === `${event.target.innerText}`) {
+      if(event.target.innerText === `${event.target.innerText}`) {
     topsGarment.classList.toggle('hide');
-  }
+      }
 }
 
 // function highlightButton(){
@@ -183,26 +153,19 @@ function addTopsGarment(event) {
 
 // }
 
-// function createTophat() {
-//   const tophatImg = document.createElement('img');
-//   tophatImg.className = 'tophatImage';
-//   tophatImg.innerHTML = `
-//   <img src="assets/bab-assets/tophat.png">`
-// }
 
 
 
 
 
-
-function createOutfit(id) {
-  outfit = new Outfit(id);
-  closet.push(outfit);
-  console.log(outfit)
+  function createOutfit(id) {
+    outfit = new Outfit(id);
+    closet.push(outfit);
+    console.log(outfit)
 }
 
-function generateId() {
-var id = Math.random().toString(36).substr(2, 9);
-console.log(id);
-createOutfit(id);
-};
+  function generateId() {
+    var id = Math.random().toString(36).substr(2, 9);
+    console.log(id);
+    createOutfit(id);
+}
