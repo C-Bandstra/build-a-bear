@@ -22,7 +22,10 @@ function styleBearHats() {
   var item = event.target.getAttribute('id');
   outfit.addGarment(item);
   pickCategory();
-  addHatGarment(event);
+  console.log(event.target.tagName)
+ if(event.target.tagName == 'BUTTON') {
+ addHatGarment(event);
+}
   // addTopsGarment(event);
   // displayImage(event);
 }
@@ -123,12 +126,14 @@ function addHatGarment(event) {
 
   hat.forEach(node => {
     if(!node.classList.contains('hide')) {
+      console.log('here');
       node.classList.add('hide')
     }
   });
 
   if(event.target.innerText === `${event.target.innerText}`) {
     hatGarment.classList.toggle('hide');
+    console.log('there');
   }
 
   // hat.forEach(node => {
