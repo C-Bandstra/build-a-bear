@@ -16,7 +16,7 @@ var clothesBtns = document.querySelectorAll('.clothes-button');
 var accessoriesBtns = document.querySelectorAll('.accessories-button')
 var hatImages = document.querySelectorAll('.hat');
 var topImages = document.querySelectorAll('.tops');
-// var hatArray = Array.from(hatImages);
+
 
 
 
@@ -97,11 +97,6 @@ backgroundsSection.addEventListener('click', styleBearBackgrounds);
       event.target.classList.add('highlight');
     }
   }
-  //   for(var i = 0; i < clothesBtns.length; i++) {
-  //     clothesBtns[i].classList.remove('highlight');
-  //   }
-  //   event.target.classList.add('highlight');
-  // }
 
   function highlightAccessoriesButton() {
     if(event.target.classList.contains('highlight')) {
@@ -113,11 +108,6 @@ backgroundsSection.addEventListener('click', styleBearBackgrounds);
       event.target.classList.add('highlight');
     }
   }
-  //   for(var i = 0; i < accessoriesBtns.length; i++) {
-  //     accessoriesBtns[i].classList.remove('highlight');
-  //   }
-  //   event.target.classList.add('highlight');
-  // }
 
   function highlightBackgroundsButton() {
     if(event.target.classList.contains('highlight')) {
@@ -129,11 +119,6 @@ backgroundsSection.addEventListener('click', styleBearBackgrounds);
       event.target.classList.add('highlight');
     }
   }
-  //   for(var i = 0; i < backgroundBtns.length; i++) {
-  //     backgroundBtns[i].classList.remove('highlight');
-  //   }
-  //   event.target.classList.add('highlight');
-  // }
 
   function showHatImage() {
     console.log(event.target.dataset.id)
@@ -142,6 +127,17 @@ backgroundsSection.addEventListener('click', styleBearBackgrounds);
         hatImages[i].classList.remove('show-image');
       } else if(hatImages[i].id === event.target.dataset.id) {
         hatImages[i].classList.add('show-image')
+      }
+    }
+  }
+
+  function showTopImage() {
+    console.log(event.target.dataset.id)
+    for(var i = 0; i < topImages.length; i++) {
+      if ((topImages[i].classList.contains('show-image')) && (topImages[i].classList.contains('tops'))) {
+        topImages[i].classList.remove('show-image');
+      } else if(topImages[i].id === event.target.dataset.id) {
+        topImages[i].classList.add('show-image')
       }
     }
   }
