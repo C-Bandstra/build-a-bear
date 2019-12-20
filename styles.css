@@ -69,6 +69,53 @@ img {
   top: 10%;
 }
 
+.tops {
+  position: absolute;
+  left: 33%;
+  top: 20%;
+  height: 476px;
+  width: auto;
+}
+
+.vest-img {
+  height: 600px;
+  width: auto;
+  position: absolute;
+  left: 29%;
+  top: 12%;
+}
+
+.accessory {
+  position: absolute;
+  left: 43%;
+  top: 46%;
+  transform: rotate(10deg);
+}
+
+.bowtie-img {
+  height: 100px;
+  width: auto;
+  position: absolute;
+  top: 44%;
+  left: 44%;
+}
+
+.smartwatch-img {
+  height: 92px;
+  width: auto;
+  top: 38%;
+  left: 36%;
+  transform: rotate(70deg);
+}
+
+.bckgrnd {
+  position: absolute;
+  z-index: -1;
+  height: 85%;
+  width: 33%;
+  left: 33%;
+  top: 3%
+}
 main {
   display: grid;
   grid-template-columns: 30% 40% 30%;
