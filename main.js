@@ -15,7 +15,7 @@ var backgroundBtns = document.querySelectorAll('.backgrounds-button')
 var clothesBtns = document.querySelectorAll('.clothes-button');
 var accessoriesBtns = document.querySelectorAll('.accessories-button')
 var hatImages = document.querySelectorAll('.hat');
-var topImages = document.querySelectorAll(".tops");
+var topImages = document.querySelectorAll('.tops');
 // var hatArray = Array.from(hatImages);
 
 
@@ -23,8 +23,8 @@ var topImages = document.querySelectorAll(".tops");
 
 hatSection.addEventListener('click', styleBearHats);
 clothesSection.addEventListener('click', styleBearTops);
-// accessories.addEventListener('click', styleBearAccessories);
-// backgrounds.addEventListener('click', styleBearBackgrounds);
+accessoriesSection.addEventListener('click', styleBearAccessories);
+backgroundsSection.addEventListener('click', styleBearBackgrounds);
 
 
   function styleBearHats() {
@@ -33,7 +33,7 @@ clothesSection.addEventListener('click', styleBearTops);
     pickCategory();
     console.log(event.target.tagName)
     if(event.target.tagName == 'BUTTON') {
-      showImage();
+      showHatImage();
     }
   }
 
@@ -41,6 +41,27 @@ clothesSection.addEventListener('click', styleBearTops);
     var item = event.target.getAttribute('id');
     outfit.addGarment(item);
     pickCategory();
+    if(event.target.tagName == 'BUTTON') {
+       showTopImage();
+    }
+  }
+
+  function styleBearAccessories() {
+    var item = event.target.getAttribute('id');
+    outfit.addGarment(item);
+    pickCategory();
+    if(event.target.tagName == 'BUTTON') {
+       console.log('accessoriess');
+    }
+  }
+
+  function styleBearBackgrounds () {
+    var item = event.target.getAttribute('id');
+    outfit.addGarment(item);
+    pickCategory();
+    if(event.target.tagName == 'BUTTON') {
+       console.log('accessoriess');
+    }
   }
 
   function pickCategory() {
@@ -67,27 +88,54 @@ clothesSection.addEventListener('click', styleBearTops);
   }
 
   function highlightClothesButton() {
-    for(var i = 0; i < clothesBtns.length; i++) {
-      clothesBtns[i].classList.remove('highlight');
+    if(event.target.classList.contains('highlight')) {
+      event.target.classList.remove('highlight');
+    } else {
+      for(var i = 0; i < clothesBtns.length; i++) {
+        clothesBtns[i].classList.remove('highlight');
+      }
+      event.target.classList.add('highlight');
     }
-    event.target.classList.add('highlight');
   }
+  //   for(var i = 0; i < clothesBtns.length; i++) {
+  //     clothesBtns[i].classList.remove('highlight');
+  //   }
+  //   event.target.classList.add('highlight');
+  // }
 
   function highlightAccessoriesButton() {
-    for(var i = 0; i < accessoriesBtns.length; i++) {
+    if(event.target.classList.contains('highlight')) {
+      event.target.classList.remove('highlight');
+    } else {
+      for(var i = 0; i < accessoriesBtns.length; i++) {
       accessoriesBtns[i].classList.remove('highlight');
+      }
+      event.target.classList.add('highlight');
     }
-    event.target.classList.add('highlight');
   }
+  //   for(var i = 0; i < accessoriesBtns.length; i++) {
+  //     accessoriesBtns[i].classList.remove('highlight');
+  //   }
+  //   event.target.classList.add('highlight');
+  // }
 
   function highlightBackgroundsButton() {
-    for(var i = 0; i < backgroundBtns.length; i++) {
-      backgroundBtns[i].classList.remove('highlight');
+    if(event.target.classList.contains('highlight')) {
+      event.target.classList.remove('highlight');
+    } else {
+      for(var i = 0; i < backgroundBtns.length; i++) {
+        backgroundBtns[i].classList.remove('highlight');
+      }
+      event.target.classList.add('highlight');
     }
-    event.target.classList.add('highlight');
   }
+  //   for(var i = 0; i < backgroundBtns.length; i++) {
+  //     backgroundBtns[i].classList.remove('highlight');
+  //   }
+  //   event.target.classList.add('highlight');
+  // }
 
-  function showImage() {
+  function showHatImage() {
     console.log(event.target.dataset.id)
     for(var i = 0; i < hatImages.length; i++) {
       if ((hatImages[i].classList.contains('show-image')) && (hatImages[i].classList.contains('hat'))) {
