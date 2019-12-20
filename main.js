@@ -17,6 +17,7 @@ var accessoriesBtns = document.querySelectorAll('.accessories-button')
 var hatImages = document.querySelectorAll('.hat');
 var topImages = document.querySelectorAll('.tops');
 var accessoriesImages = document.querySelectorAll('.accessory');
+var backgroundImages = document.querySelectorAll('.bckgrnd');
 
 
 
@@ -52,7 +53,7 @@ backgroundsSection.addEventListener('click', styleBearBackgrounds);
     outfit.addGarment(item);
     pickCategory();
     if(event.target.tagName == 'BUTTON') {
-       showAccessoriesImage(); 
+       showAccessoriesImage();
     }
   }
 
@@ -61,7 +62,7 @@ backgroundsSection.addEventListener('click', styleBearBackgrounds);
     outfit.addGarment(item);
     pickCategory();
     if(event.target.tagName == 'BUTTON') {
-       console.log('accessoriess');
+      showBackgroundImage();
     }
   }
 
@@ -150,6 +151,17 @@ backgroundsSection.addEventListener('click', styleBearBackgrounds);
         accessoriesImages[i].classList.remove('show-image');
       } else if(accessoriesImages[i].id === event.target.dataset.id) {
         accessoriesImages[i].classList.add('show-image')
+      }
+    }
+  }
+
+  function showBackgroundImage() {
+    console.log(event.target.dataset.id)
+    for(var i = 0; i < backgroundImages.length; i++) {
+      if ((backgroundImages[i].classList.contains('show-image')) && (backgroundImages[i].classList.contains('bckgrnd'))) {
+        backgroundImages[i].classList.remove('show-image');
+      } else if(backgroundImages[i].id === event.target.dataset.id) {
+        backgroundImages[i].classList.add('show-image')
       }
     }
   }
