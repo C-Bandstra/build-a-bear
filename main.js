@@ -19,10 +19,6 @@ var topImages = document.querySelectorAll('.tops');
 var accessoriesImages = document.querySelectorAll('.accessory');
 var backgroundImages = document.querySelectorAll('.bckgrnd');
 
-
-
-
-
 hatSection.addEventListener('click', styleBearHats);
 clothesSection.addEventListener('click', styleBearTops);
 accessoriesSection.addEventListener('click', styleBearAccessories);
@@ -166,12 +162,6 @@ backgroundsSection.addEventListener('click', styleBearBackgrounds);
     }
   }
 
-
-
-
-
-
-
 // function highlightButton(){
   // var activeButton = event.target;
   //   console.log(activeButton);
@@ -197,11 +187,6 @@ backgroundsSection.addEventListener('click', styleBearBackgrounds);
   // }
 
 // }
-
-
-
-
-
 
   function createOutfit(id) {
     outfit = new Outfit(id);
