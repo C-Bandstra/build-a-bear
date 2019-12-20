@@ -22,6 +22,51 @@ img {
 .bear-img {
   height: 550px;
   width: 550px;
+  position: relative;
+}
+
+.hat {
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  left: 47%;
+  top: 9%;
+}
+
+.tophat-img {
+  transform: rotate(23deg);
+  position: absolute;
+  left: 48%
+}
+
+.sunhat-img {
+  position: absolute;
+  height: 200px;
+  width: auto;
+  top: 10%;
+  left: 44%;
+  transform: rotate(-9deg);
+}
+
+.hairbow-img {
+  position: absolute;
+  transform: rotate(18deg);
+  top: 15%;
+}
+
+.crown-img {
+  transform: rotate(23deg);
+  position: absolute;
+  left: 48%;
+}
+
+.spacehelmet-img {
+  position: absolute;
+  height: 296px;
+  width: 329px;
+  transform: rotate(12deg);
+  left: 39%;
+  top: 10%;
 }
 
 main {
