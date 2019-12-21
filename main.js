@@ -35,6 +35,7 @@ function createCard(){
   cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">
               <h2 class="outfit-name">${input.value}</p>
            </div>`);
+  input.value = '';         
 }
 
   function styleBearHats() {
