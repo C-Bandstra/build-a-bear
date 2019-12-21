@@ -163,6 +163,11 @@ main {
   background-color: #E76F51;
 }
 
+#save-button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
 .wardrobe h2 {
   padding-left: 3%;
 }

@@ -5,15 +5,17 @@ var outfit
 document.onload = generateId();
 //rename backt to outfits before turning it//
 
-var saveBtn = document.querySelector('#save-button', createOutfit);
-var hatSection = document.querySelector('.hats')
-var clothesSection = document.querySelector('.clothes')
-var accessoriesSection = document.querySelector('.accessories')
-var backgroundsSection = document.querySelector('.backgrounds')
+var saveBtn = document.querySelector('#save-button');
+var nameInput = document.querySelector('input');
+var cardContainer = document.querySelector('.card-container');
+var hatSection = document.querySelector('.hats');
+var clothesSection = document.querySelector('.clothes');
+var accessoriesSection = document.querySelector('.accessories');
+var backgroundsSection = document.querySelector('.backgrounds');
 var hatBtns = document.querySelectorAll('.hat-button');
-var backgroundBtns = document.querySelectorAll('.backgrounds-button')
+var backgroundBtns = document.querySelectorAll('.backgrounds-button');
 var clothesBtns = document.querySelectorAll('.clothes-button');
-var accessoriesBtns = document.querySelectorAll('.accessories-button')
+var accessoriesBtns = document.querySelectorAll('.accessories-button');
 var hatImages = document.querySelectorAll('.hat');
 var topImages = document.querySelectorAll('.tops');
 var accessoriesImages = document.querySelectorAll('.accessory');
@@ -23,10 +25,59 @@ hatSection.addEventListener('click', styleBearHats);
 clothesSection.addEventListener('click', styleBearTops);
 accessoriesSection.addEventListener('click', styleBearAccessories);
 backgroundsSection.addEventListener('click', styleBearBackgrounds);
+saveBtn.addEventListener('click', createCard);
+nameInput.addEventListener('input', disableSaveBtn);
 
+// function saveOutfit (){
+//   createCard();
+// }
+disableSaveBtn();
+
+function disableSaveBtn(){
+  if(nameInput.value===''){
+    saveBtn.disabled = true;
+  } else if (nameInput.value){
+    saveBtn.disabled = false;
+  }
+}
+
+function createCard(){
+  cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">
+              <h2 class="outfit-name">${nameInput.value}</p>
+           </div>`);
+  nameInput.value = '';
+  disableSaveBtn();
+  clearAllBtns();
+}
+
+function clearAllBtns(){
+  var allBtns = document.querySelectorAll('button');
+   for (var i = 0; i < allBtns.length; i++) {
+       allBtns[i].classList.remove('highlight');
+   }
+   clearAllImages();
+}
+
+function clearAllImages(){
+  var allImgs = document.querySelectorAll('.hide-image');
+   for (var i = 0; i < allImgs.length; i++) {
+       allImgs[i].classList.remove('show-image');
+   }
+}
 
   function styleBearHats() {
     var item = event.target.getAttribute('id');
+    var [, category] = item.split('-');
+    console.log(category);
+    var oldGarment = outfit.garments.find(function(garment){
+      if(garment.includes(category)){
+        return true;
+      }
+    })
+    console.log(oldGarment);
+    if (oldGarment != undefined){
+      outfit.removeGarment(oldGarment)
+    }
     outfit.addGarment(item);
     pickCategory();
     console.log(event.target.tagName)
@@ -37,10 +88,22 @@ backgroundsSection.addEventListener('click', styleBearBackgrounds);
 
   function styleBearTops() {
     var item = event.target.getAttribute('id');
+    var [, category] = item.split('-');
+    console.log(category);
+    var oldGarment = outfit.garments.find(function(garment){
+      if(garment.includes(category)){
+        return true;
+      }
+    })
+    console.log(oldGarment);
+    if (oldGarment != undefined){
+      outfit.removeGarment(oldGarment)
+    }
     outfit.addGarment(item);
     pickCategory();
+    console.log(event.target.tagName)
     if(event.target.tagName == 'BUTTON') {
-       showTopImage();
+      showTopImage();
     }
   }
 
@@ -188,14 +251,14 @@ backgroundsSection.addEventListener('click', styleBearBackgrounds);
 
 // }
 
-  function createOutfit(id) {
-    outfit = new Outfit(id);
-    closet.push(outfit);
-    console.log(outfit)
+function createOutfit(id) {
+  outfit = new Outfit(id);
+  closet.push(outfit);
+  console.log(outfit)
 }
 
-  function generateId() {
-    var id = Math.random().toString(36).substr(2, 9);
-    console.log(id);
-    createOutfit(id);
+function generateId() {
+  var id = Math.random().toString(36).substr(2,9);
+  console.log(id);
+  createOutfit(id);
 }
