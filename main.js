@@ -5,15 +5,17 @@ var outfit
 document.onload = generateId();
 //rename backt to outfits before turning it//
 
-var saveBtn = document.querySelector('#save-button', createOutfit);
-var hatSection = document.querySelector('.hats')
-var clothesSection = document.querySelector('.clothes')
-var accessoriesSection = document.querySelector('.accessories')
-var backgroundsSection = document.querySelector('.backgrounds')
+var saveBtn = document.querySelector('#save-button');
+var input = document.querySelector('input');
+var cardContainer = document.querySelector('.card-container');
+var hatSection = document.querySelector('.hats');
+var clothesSection = document.querySelector('.clothes');
+var accessoriesSection = document.querySelector('.accessories');
+var backgroundsSection = document.querySelector('.backgrounds');
 var hatBtns = document.querySelectorAll('.hat-button');
-var backgroundBtns = document.querySelectorAll('.backgrounds-button')
+var backgroundBtns = document.querySelectorAll('.backgrounds-button');
 var clothesBtns = document.querySelectorAll('.clothes-button');
-var accessoriesBtns = document.querySelectorAll('.accessories-button')
+var accessoriesBtns = document.querySelectorAll('.accessories-button');
 var hatImages = document.querySelectorAll('.hat');
 var topImages = document.querySelectorAll('.tops');
 var accessoriesImages = document.querySelectorAll('.accessory');
@@ -23,7 +25,17 @@ hatSection.addEventListener('click', styleBearHats);
 clothesSection.addEventListener('click', styleBearTops);
 accessoriesSection.addEventListener('click', styleBearAccessories);
 backgroundsSection.addEventListener('click', styleBearBackgrounds);
+saveBtn.addEventListener('click', createCard);
 
+// function saveOutfit (){
+//   createCard();
+// }
+
+function createCard(){
+  cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">
+              <h2 class="outfit-name">${input.value}</p>
+           </div>`);
+}
 
   function styleBearHats() {
     var item = event.target.getAttribute('id');
