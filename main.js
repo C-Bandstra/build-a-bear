@@ -35,7 +35,6 @@ disableSaveBtn();
 
 function disableSaveBtn(){
   if(nameInput.value===''){
-    console.log('inside the if')
     saveBtn.disabled = true;
   } else if (nameInput.value){
     saveBtn.disabled = false;
@@ -48,6 +47,22 @@ function createCard(){
            </div>`);
   nameInput.value = '';
   disableSaveBtn();
+  clearAllBtns();
+}
+
+function clearAllBtns(){
+  var allBtns = document.querySelectorAll('button');
+   for (var i = 0; i < allBtns.length; i++) {
+       allBtns[i].classList.remove('highlight');
+   }
+   clearAllImages();
+}
+
+function clearAllImages(){
+  var allImgs = document.querySelectorAll('.hide-image');
+   for (var i = 0; i < allImgs.length; i++) {
+       allImgs[i].classList.remove('show-image');
+   }
 }
 
   function styleBearHats() {
