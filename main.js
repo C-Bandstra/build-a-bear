@@ -6,7 +6,7 @@ document.onload = generateId();
 //rename backt to outfits before turning it//
 
 var saveBtn = document.querySelector('#save-button');
-var input = document.querySelector('input');
+var nameInput = document.querySelector('input');
 var cardContainer = document.querySelector('.card-container');
 var hatSection = document.querySelector('.hats');
 var clothesSection = document.querySelector('.clothes');
@@ -26,16 +26,28 @@ clothesSection.addEventListener('click', styleBearTops);
 accessoriesSection.addEventListener('click', styleBearAccessories);
 backgroundsSection.addEventListener('click', styleBearBackgrounds);
 saveBtn.addEventListener('click', createCard);
+nameInput.addEventListener('input', disableSaveBtn);
 
 // function saveOutfit (){
 //   createCard();
 // }
+disableSaveBtn();
+
+function disableSaveBtn(){
+  if(nameInput.value===''){
+    console.log('inside the if')
+    saveBtn.disabled = true;
+  } else if (nameInput.value){
+    saveBtn.disabled = false;
+  }
+}
 
 function createCard(){
   cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">
-              <h2 class="outfit-name">${input.value}</p>
+              <h2 class="outfit-name">${nameInput.value}</p>
            </div>`);
-  input.value = '';         
+  nameInput.value = '';
+  disableSaveBtn();
 }
 
   function styleBearHats() {
