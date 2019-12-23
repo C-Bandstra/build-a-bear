@@ -7,7 +7,7 @@
 }
 
 header {
-  background-image: linear-gradient(to right, #E76F51, #E9C46A);
+  background-image: linear-gradient(to right, #E76F51, #E9C46A, #E76F51);
   color: #264653;
   font-family: 'Schoolbell';
   font-size: 2em;
@@ -230,7 +230,7 @@ main {
 }
 
 .card {
-  background-image: linear-gradient(to right, #E76F51, #E9C46A);
+  background-image: linear-gradient(to right, #E9C46A, #E76F51);
   border: solid 2px cadetblue;
   width: 70%;
   align-items: center;
