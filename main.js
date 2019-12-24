@@ -92,43 +92,49 @@ function clearAllImages(){
   function styleBearTops() {
     var item = event.target.getAttribute('id');
     var [, category] = item.split('-');
-    console.log(category);
+    // console.log(category);
     var oldGarment = outfit.garments.find(function(garment){
       if(garment.includes(category)){
         return true;
       }
     })
-    console.log(oldGarment);
+    // console.log(oldGarment);
     if (oldGarment != undefined){
       outfit.removeGarment(oldGarment)
     }
-    outfit.addGarment(item);
-    pickCategory();
-    console.log(event.target.tagName)
-    if(event.target.tagName == 'BUTTON') {
-      showTopImage();// XXX:
+    if (!event.target.classList.contains('highlight')){
+      outfit.addGarment(item);
     }
+    pickCategory();
+    // console.log(event.target.tagName)
+    if(event.target.tagName == 'BUTTON') {
+      showTopImage();
+    }
+    console.log(outfit.garments)
   }
 
   function styleBearAccessories() {
     var item = event.target.getAttribute('id');
     var [, category] = item.split('-');
-    console.log(category);
+    // console.log(category);
     var oldGarment = outfit.garments.find(function(garment){
       if(garment.includes(category)){
         return true;
       }
     })
-    console.log(oldGarment);
+    // console.log(oldGarment);
     if (oldGarment != undefined){
       outfit.removeGarment(oldGarment)
     }
-    outfit.addGarment(item);
+    if (!event.target.classList.contains('highlight')){
+      outfit.addGarment(item);
+    }
     pickCategory();
-    console.log(event.target.tagName)
+    // console.log(event.target.tagName)
     if(event.target.tagName == 'BUTTON') {
       showAccessoriesImage();
     }
+    console.log(outfit.garments)
   }
 
   function styleBearBackgrounds () {
