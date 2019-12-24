@@ -68,22 +68,25 @@ function clearAllImages(){
   function styleBearHats() {
     var item = event.target.getAttribute('id');
     var [, category] = item.split('-');
-    console.log(category);
+    // console.log(category);
     var oldGarment = outfit.garments.find(function(garment){
       if(garment.includes(category)){
         return true;
       }
     })
-    console.log(oldGarment);
+    // console.log(oldGarment);
     if (oldGarment != undefined){
       outfit.removeGarment(oldGarment)
     }
-    outfit.addGarment(item);
+    if (!event.target.classList.contains('highlight')){
+      outfit.addGarment(item);
+    }
     pickCategory();
-    console.log(event.target.tagName)
+    // console.log(event.target.tagName)
     if(event.target.tagName == 'BUTTON') {
       showHatImage();
     }
+    console.log(outfit.garments)
   }
 
   function styleBearTops() {
@@ -103,22 +106,35 @@ function clearAllImages(){
     pickCategory();
     console.log(event.target.tagName)
     if(event.target.tagName == 'BUTTON') {
-      showTopImage();
+      showTopImage();// XXX:
     }
   }
 
   function styleBearAccessories() {
     var item = event.target.getAttribute('id');
+    var [, category] = item.split('-');
+    console.log(category);
+    var oldGarment = outfit.garments.find(function(garment){
+      if(garment.includes(category)){
+        return true;
+      }
+    })
+    console.log(oldGarment);
+    if (oldGarment != undefined){
+      outfit.removeGarment(oldGarment)
+    }
     outfit.addGarment(item);
     pickCategory();
+    console.log(event.target.tagName)
     if(event.target.tagName == 'BUTTON') {
-       showAccessoriesImage();
+      showAccessoriesImage();
     }
   }
 
   function styleBearBackgrounds () {
     var item = event.target.getAttribute('id');
-    outfit.addGarment(item);
+    outfit.background = item;
+    console.log(outfit);
     pickCategory();
     if(event.target.tagName == 'BUTTON') {
       showBackgroundImage();
