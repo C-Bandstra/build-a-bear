@@ -65,76 +65,37 @@ function clearAllImages(){
    }
 }
 
+function styleBear(style){
+  var item = event.target.getAttribute('id');
+  var [, category] = item.split('-');
+  var oldGarment = outfit.garments.find(function(garment){
+    if(garment.includes(category)){
+      return true;
+    }
+  })
+  if (oldGarment != undefined){
+    outfit.removeGarment(oldGarment)
+  }
+  if (!event.target.classList.contains('highlight')){
+    outfit.addGarment(item);
+  }
+  pickCategory();
+  if(event.target.tagName == 'BUTTON') {
+    style();
+  }
+  console.log(outfit.garments);
+}
+
   function styleBearHats() {
-    var item = event.target.getAttribute('id');
-    var [, category] = item.split('-');
-    // console.log(category);
-    var oldGarment = outfit.garments.find(function(garment){
-      if(garment.includes(category)){
-        return true;
-      }
-    })
-    // console.log(oldGarment);
-    if (oldGarment != undefined){
-      outfit.removeGarment(oldGarment)
-    }
-    if (!event.target.classList.contains('highlight')){
-      outfit.addGarment(item);
-    }
-    pickCategory();
-    // console.log(event.target.tagName)
-    if(event.target.tagName == 'BUTTON') {
-      showHatImage();
-    }
-    console.log(outfit.garments)
+    styleBear(showHatImage);
   }
 
   function styleBearTops() {
-    var item = event.target.getAttribute('id');
-    var [, category] = item.split('-');
-    // console.log(category);
-    var oldGarment = outfit.garments.find(function(garment){
-      if(garment.includes(category)){
-        return true;
-      }
-    })
-    // console.log(oldGarment);
-    if (oldGarment != undefined){
-      outfit.removeGarment(oldGarment)
-    }
-    if (!event.target.classList.contains('highlight')){
-      outfit.addGarment(item);
-    }
-    pickCategory();
-    // console.log(event.target.tagName)
-    if(event.target.tagName == 'BUTTON') {
-      showTopImage();
-    }
-    console.log(outfit.garments)
+    styleBear(showTopImage);
   }
 
   function styleBearAccessories() {
-    var item = event.target.getAttribute('id');
-    var [, category] = item.split('-');
-    // console.log(category);
-    var oldGarment = outfit.garments.find(function(garment){
-      if(garment.includes(category)){
-        return true;
-      }
-    })
-    // console.log(oldGarment);
-    if (oldGarment != undefined){
-      outfit.removeGarment(oldGarment)
-    }
-    if (!event.target.classList.contains('highlight')){
-      outfit.addGarment(item);
-    }
-    pickCategory();
-    // console.log(event.target.tagName)
-    if(event.target.tagName == 'BUTTON') {
-      showAccessoriesImage();
-    }
-    console.log(outfit.garments)
+    styleBear(showAccessoriesImage);
   }
 
   function styleBearBackgrounds () {
