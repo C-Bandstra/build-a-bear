@@ -258,20 +258,24 @@ main {
   width: 70%;
   align-items: center;
   display: flex;
+  flex-direction: row;
   margin-top: 7%;
   height: 4em;
   box-shadow: 3px 3px;
+  justify-content: space-between;
 }
 
 .outfit-name {
-  margin-left: 5%;
+  margin: 0;
+  display: inline-block;
 }
 
 .close-icon {
+  margin: 0;
   height: 25px;
   width: 25px;
-  margin-left: 60%;
-  margin-top: -10%
+  display: inline-block;
+
 }
 
 .highlight {
