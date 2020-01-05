@@ -65,61 +65,45 @@ function clearAllImages(){
    }
 }
 
-  function styleBearHats() {
-    var item = event.target.getAttribute('id');
-    var [, category] = item.split('-');
-    console.log(category);
-    var oldGarment = outfit.garments.find(function(garment){
-      if(garment.includes(category)){
-        return true;
-      }
-    })
-    console.log(oldGarment);
-    if (oldGarment != undefined){
-      outfit.removeGarment(oldGarment)
+function styleBear(style){
+  var item = event.target.getAttribute('id');
+  var [, category] = item.split('-');
+  var oldGarment = outfit.garments.find(function(garment){
+    if(garment.includes(category)){
+      return true;
     }
+  })
+  if (oldGarment != undefined){
+    outfit.removeGarment(oldGarment)
+  }
+  if (!event.target.classList.contains('highlight')){
     outfit.addGarment(item);
-    pickCategory();
-    console.log(event.target.tagName)
-    if(event.target.tagName == 'BUTTON') {
-      showHatImage();
-    }
+  }
+  pickCategory();
+  if(event.target.tagName == 'BUTTON') {
+    style();
+  }
+}
+
+  function styleBearHats() {
+    styleBear(showHatImage);
   }
 
   function styleBearTops() {
-    var item = event.target.getAttribute('id');
-    var [, category] = item.split('-');
-    console.log(category);
-    var oldGarment = outfit.garments.find(function(garment){
-      if(garment.includes(category)){
-        return true;
-      }
-    })
-    console.log(oldGarment);
-    if (oldGarment != undefined){
-      outfit.removeGarment(oldGarment)
-    }
-    outfit.addGarment(item);
-    pickCategory();
-    console.log(event.target.tagName)
-    if(event.target.tagName == 'BUTTON') {
-      showTopImage();
-    }
+    styleBear(showTopImage);
   }
 
   function styleBearAccessories() {
-    var item = event.target.getAttribute('id');
-    outfit.addGarment(item);
-    pickCategory();
-    if(event.target.tagName == 'BUTTON') {
-       showAccessoriesImage();
-    }
+    styleBear(showAccessoriesImage);
   }
 
   function styleBearBackgrounds () {
     var item = event.target.getAttribute('id');
-    outfit.addGarment(item);
+    outfit.background = item;
     pickCategory();
+    if (!event.target.classList.contains('highlight')){
+      outfit.background='';
+    }
     if(event.target.tagName == 'BUTTON') {
       showBackgroundImage();
     }
@@ -182,7 +166,6 @@ function clearAllImages(){
   }
 
   function showHatImage() {
-    console.log(event.target.dataset.id)
     for(var i = 0; i < hatImages.length; i++) {
       if ((hatImages[i].classList.contains('show-image')) && (hatImages[i].classList.contains('hat'))) {
         hatImages[i].classList.remove('show-image');
@@ -193,7 +176,6 @@ function clearAllImages(){
   }
 
   function showTopImage() {
-    console.log(event.target.dataset.id)
     for(var i = 0; i < topImages.length; i++) {
       if ((topImages[i].classList.contains('show-image')) && (topImages[i].classList.contains('tops'))) {
         topImages[i].classList.remove('show-image');
@@ -204,7 +186,6 @@ function clearAllImages(){
   }
 
   function showAccessoriesImage() {
-    console.log(event.target.dataset.id)
     for(var i = 0; i < accessoriesImages.length; i++) {
       if ((accessoriesImages[i].classList.contains('show-image')) && (accessoriesImages[i].classList.contains('accessory'))) {
         accessoriesImages[i].classList.remove('show-image');
@@ -215,7 +196,6 @@ function clearAllImages(){
   }
 
   function showBackgroundImage() {
-    console.log(event.target.dataset.id)
     for(var i = 0; i < backgroundImages.length; i++) {
       if ((backgroundImages[i].classList.contains('show-image')) && (backgroundImages[i].classList.contains('bckgrnd'))) {
         backgroundImages[i].classList.remove('show-image');
@@ -254,11 +234,9 @@ function clearAllImages(){
 function createOutfit(id) {
   outfit = new Outfit(id);
   closet.push(outfit);
-  console.log(outfit)
 }
 
 function generateId() {
   var id = Math.random().toString(36).substr(2,9);
-  console.log(id);
   createOutfit(id);
 }
