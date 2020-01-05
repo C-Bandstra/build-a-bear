@@ -56,9 +56,10 @@ outfitName = nameInput.value;
   saveOutfit(outfitName);
 }
 
+
 function saveOutfit(){
-  JSON.stringify(outfitName, outfit);
-  Object.localStorage.setItem(outfitName, outfit);
+  localStorage.setItem(outfitName, JSON.stringify(outfit));
+  generateId();
 }
 
 function clearAllBtns(){
