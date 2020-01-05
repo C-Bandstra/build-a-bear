@@ -1,6 +1,7 @@
 
 var closet = [];
 var outfit
+var outfitName
 
 document.onload = generateId();
 //rename backt to outfits before turning it//
@@ -42,12 +43,20 @@ function disableSaveBtn(){
 }
 
 function createCard(){
+outfitName = nameInput.value;
   cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">
               <h2 class="outfit-name">${nameInput.value}</p>
            </div>`);
   nameInput.value = '';
   disableSaveBtn();
   clearAllBtns();
+  console.log(outfitName);
+  saveOutfit(outfitName);
+}
+
+function saveOutfit(){
+  JSON.stringify(outfitName, outfit);
+  Object.localStorage.setItem(outfitName, outfit);
 }
 
 function clearAllBtns(){
