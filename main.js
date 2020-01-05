@@ -58,6 +58,7 @@ outfitName = nameInput.value;
 
 
 function saveOutfit(){
+  outfit.title= outfitName;
   localStorage.setItem(outfitName, JSON.stringify(outfit));
   generateId();
 }
