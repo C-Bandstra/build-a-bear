@@ -43,9 +43,9 @@ function disableSaveBtn(){
 
 function createCard(){
   cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">
+              <h2 class="outfit-name">${nameInput.value}</h2>
               <img class="close-icon"
               src="http://icons.iconarchive.com/icons/iconsmind/outline/512/Close-icon.png">
-              <h2 class="outfit-name">${nameInput.value}</p>
            </div>`);
   nameInput.value = '';
   disableSaveBtn();
