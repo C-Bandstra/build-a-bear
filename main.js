@@ -28,6 +28,7 @@ accessoriesSection.addEventListener('click', styleBearAccessories);
 backgroundsSection.addEventListener('click', styleBearBackgrounds);
 saveBtn.addEventListener('click', createCard);
 nameInput.addEventListener('input', disableSaveBtn);
+cardContainer.addEventListener('click', removeSavedOutfit);
 
 // function saveOutfit (){
 //   createCard();
@@ -59,7 +60,6 @@ function createCardInHtml(displayValue) {
               src="http://icons.iconarchive.com/icons/iconsmind/outline/512/Close-icon.png">
            </div>`);
 }
-
 
 function saveOutfit(){
   outfit.title= outfitName;
@@ -271,6 +271,11 @@ function loadSavedOutfits(){
     var outfitObj = JSON.parse(savedCard)
     closet.push(new Outfit(outfitObj.id, outfitObj.title, outfitObj.garments, outfitObj.background));
   })
-
-  debugger
 }
+
+function removeSavedOutfit(){
+  // debugger
+  // console.log(event);
+      event.target.parentElement.remove();
+      localStorage.removeItem(event.target.parentElement.innerText.trim())
+  }
