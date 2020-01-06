@@ -1,13 +1,14 @@
 
 var closet = [];
 var outfit
+var outfitName
+var cardContainer = document.querySelector('.card-container');
 
-document.onload = generateId();
+document.onload = onPageLoad();
 //rename backt to outfits before turning it//
 
 var saveBtn = document.querySelector('#save-button');
 var nameInput = document.querySelector('input');
-var cardContainer = document.querySelector('.card-container');
 var hatSection = document.querySelector('.hats');
 var clothesSection = document.querySelector('.clothes');
 var accessoriesSection = document.querySelector('.accessories');
@@ -27,6 +28,7 @@ accessoriesSection.addEventListener('click', styleBearAccessories);
 backgroundsSection.addEventListener('click', styleBearBackgrounds);
 saveBtn.addEventListener('click', createCard);
 nameInput.addEventListener('input', disableSaveBtn);
+cardContainer.addEventListener('click', removeSavedOutfit);
 
 // function saveOutfit (){
 //   createCard();
@@ -42,14 +44,27 @@ function disableSaveBtn(){
 }
 
 function createCard(){
-  cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">
-              <h2 class="outfit-name">${nameInput.value}</h2>
-              <img class="close-icon"
-              src="http://icons.iconarchive.com/icons/iconsmind/outline/512/Close-icon.png">
-           </div>`);
+  outfitName = nameInput.value;
+  createCardInHtml(nameInput.value)
   nameInput.value = '';
   disableSaveBtn();
   clearAllBtns();
+  console.log(outfitName);
+  saveOutfit(outfitName);
+}
+
+function createCardInHtml(displayValue) {
+  cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">
+              <h2 class="outfit-name">${displayValue}</h2>
+              <img class="close-icon"
+              src="http://icons.iconarchive.com/icons/iconsmind/outline/512/Close-icon.png">
+           </div>`);
+}
+
+function saveOutfit(){
+  outfit.title= outfitName;
+  localStorage.setItem(outfitName, JSON.stringify(outfit));
+  generateId();
 }
 
 function clearAllBtns(){
@@ -241,4 +256,26 @@ function createOutfit(id) {
 function generateId() {
   var id = Math.random().toString(36).substr(2,9);
   createOutfit(id);
+}
+
+function onPageLoad(){
+  generateId();
+  loadSavedOutfits();
+}
+
+function loadSavedOutfits(){
+  Object.keys(localStorage).forEach(function(savedCardTitle) {
+    createCardInHtml(savedCardTitle);
+  })
+  Object.values(localStorage).forEach(function(savedCard){
+    var outfitObj = JSON.parse(savedCard);
+    closet.push(new Outfit(outfitObj.id, outfitObj.title, outfitObj.garments, outfitObj.background));
+  })
+}
+
+function removeSavedOutfit(){
+  if (event.target.classList.contains('close-icon')){
+      event.target.parentElement.remove();
+      localStorage.removeItem(event.target.parentElement.innerText.trim())
+  }
 }
