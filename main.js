@@ -268,7 +268,7 @@ function loadSavedOutfits(){
     createCardInHtml(savedCardTitle);
   })
   Object.values(localStorage).forEach(function(savedCard){
-    var outfitObj = JSON.parse(savedCard)
+    var outfitObj = JSON.parse(savedCard);
     closet.push(new Outfit(outfitObj.id, outfitObj.title, outfitObj.garments, outfitObj.background));
   })
 }
