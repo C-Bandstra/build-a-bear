@@ -274,8 +274,8 @@ function loadSavedOutfits(){
 }
 
 function removeSavedOutfit(){
-  // debugger
-  // console.log(event);
+  if (event.target.classList.contains('close-icon')){
       event.target.parentElement.remove();
       localStorage.removeItem(event.target.parentElement.innerText.trim())
   }
+}
