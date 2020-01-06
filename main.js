@@ -2,13 +2,13 @@
 var closet = [];
 var outfit
 var outfitName
+var cardContainer = document.querySelector('.card-container');
 
-document.onload = generateId();
+document.onload = onPageLoad();
 //rename backt to outfits before turning it//
 
 var saveBtn = document.querySelector('#save-button');
 var nameInput = document.querySelector('input');
-var cardContainer = document.querySelector('.card-container');
 var hatSection = document.querySelector('.hats');
 var clothesSection = document.querySelector('.clothes');
 var accessoriesSection = document.querySelector('.accessories');
@@ -43,17 +43,21 @@ function disableSaveBtn(){
 }
 
 function createCard(){
-outfitName = nameInput.value;
-  cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">
-              <h2 class="outfit-name">${nameInput.value}</h2>
-              <img class="close-icon"
-              src="http://icons.iconarchive.com/icons/iconsmind/outline/512/Close-icon.png">
-           </div>`);
+  outfitName = nameInput.value;
+  createCardInHtml(nameInput.value)
   nameInput.value = '';
   disableSaveBtn();
   clearAllBtns();
   console.log(outfitName);
   saveOutfit(outfitName);
+}
+
+function createCardInHtml(displayValue) {
+  cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">
+              <h2 class="outfit-name">${displayValue}</h2>
+              <img class="close-icon"
+              src="http://icons.iconarchive.com/icons/iconsmind/outline/512/Close-icon.png">
+           </div>`);
 }
 
 
@@ -252,4 +256,15 @@ function createOutfit(id) {
 function generateId() {
   var id = Math.random().toString(36).substr(2,9);
   createOutfit(id);
+}
+
+function onPageLoad(){
+  generateId();
+  loadSavedOutfits();
+}
+
+function loadSavedOutfits(){
+  Object.keys(localStorage).forEach(function(savedCardTitle) {
+    createCardInHtml(savedCardTitle)
+  })
 }
