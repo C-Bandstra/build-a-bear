@@ -30,6 +30,8 @@ saveBtn.addEventListener('click', createCard);
 nameInput.addEventListener('input', disableSaveBtn);
 cardContainer.addEventListener('click', removeSavedOutfit);
 
+
+
 // function saveOutfit (){
 //   createCard();
 // }
@@ -272,10 +274,57 @@ function loadSavedOutfits(){
     closet.push(new Outfit(outfitObj.id, outfitObj.title, outfitObj.garments, outfitObj.background));
   })
 }
-
-function removeSavedOutfit(){
+//maybe rename to handleCardClick
+//remo
+function removeSavedOutfit(event){
   if (event.target.classList.contains('close-icon')){
+
       event.target.parentElement.remove();
-      localStorage.removeItem(event.target.parentElement.innerText.trim())
+      localStorage.removeItem(event.target.parentElement.innerText.trim());
+      console.log('remove saved outfit');
+      clearAllBtns();
+    }
+     else {
+    populateInput(event);
   }
+
+  }
+
+function populateInput(event) {
+  console.log('populate event');
+     //remove all clothes from BEAR
+     //remove all highlights from buttons
+    clearAllBtns();
+     //fill in input field with card title
+    var outfitTitle;
+    if(event.target.classList.contains('outfit-name')) {
+    outfitTitle = event.target.innerHTML;
+    }
+    else {
+    outfitTitle = event.target.firstElementChild.innerHTML;
+    }
+    nameInput.value = outfitTitle;
+    redressBear(outfitTitle);
+ }
+//     //trigger click events on appropriate buttons
+  function redressBear(outfitTitle) {
+    var values = Object.values(localStorage);
+    var bearType;
+    for(let i = 0, len = values.length; i < len; i++) {
+    var item = JSON.parse(values[i]);
+    if (item.title === outfitTitle) {
+      bearType = item;
+       }
+     }
+  if(bearType) {
+        if(bearType.background !== '') {
+          document.getElementById(bearType.background).click();
+          saveBtn.disabled = false;
+        }
+    }
+  for(let i = 0, len = bearType.garments.length; i < len; i++) {
+          document.getElementById(bearType.garments[i]).click();
+          saveBtn.disabled = false;
+        }
+        console.log(bearType.garments);
 }
