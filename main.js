@@ -297,4 +297,13 @@ function removeSavedOutfit(event){
     }
     nameInput.value = outfitTitle;
  }
+    //trigger click events on appropriate buttons
+    var values = Object.values(localStorage);
+    var bearType;
+    for(let i = 0, len = values.length; i < len; i++) {
+    var item = JSON.parse(values[i]);
+    if (item.title === outfitTitle) {
+      bearType = item;
+       }
+     }
 }
