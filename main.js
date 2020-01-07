@@ -278,12 +278,20 @@ function loadSavedOutfits(){
 //remo
 function removeSavedOutfit(event){
   if (event.target.classList.contains('close-icon')){
+
       event.target.parentElement.remove();
       localStorage.removeItem(event.target.parentElement.innerText.trim());
+      console.log('remove saved outfit');
       clearAllBtns();
     }
+     else {
+    populateInput(event);
+  }
 
-  else {
+  }
+
+function populateInput(event) {
+  console.log('populate event');
      //remove all clothes from BEAR
      //remove all highlights from buttons
     clearAllBtns();
@@ -296,8 +304,10 @@ function removeSavedOutfit(event){
     outfitTitle = event.target.firstElementChild.innerHTML;
     }
     nameInput.value = outfitTitle;
+    redressBear(outfitTitle);
  }
-    //trigger click events on appropriate buttons
+//     //trigger click events on appropriate buttons
+  function redressBear(outfitTitle) {
     var values = Object.values(localStorage);
     var bearType;
     for(let i = 0, len = values.length; i < len; i++) {
@@ -311,11 +321,10 @@ function removeSavedOutfit(event){
           document.getElementById(bearType.background).click();
           saveBtn.disabled = false;
         }
-
-}
+    }
   for(let i = 0, len = bearType.garments.length; i < len; i++) {
           document.getElementById(bearType.garments[i]).click();
           saveBtn.disabled = false;
         }
         console.log(bearType.garments);
-      }
+}
