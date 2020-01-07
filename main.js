@@ -313,4 +313,9 @@ function removeSavedOutfit(event){
         }
 
 }
-}
+  for(let i = 0, len = bearType.garments.length; i < len; i++) {
+          document.getElementById(bearType.garments[i]).click();
+          saveBtn.disabled = false;
+        }
+        console.log(bearType.garments);
+      }
