@@ -306,4 +306,11 @@ function removeSavedOutfit(event){
       bearType = item;
        }
      }
+  if(bearType) {
+        if(bearType.background !== '') {
+          document.getElementById(bearType.background).click();
+          saveBtn.disabled = false;
+        }
+
+}
 }
