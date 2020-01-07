@@ -138,6 +138,10 @@ main {
   text-decoration: underline;
 }
 
+ button {
+ cursor: pointer;
+}
+
 .button,
 .hat-button,
 .clothes-button,
@@ -255,6 +259,7 @@ main {
 .card {
   background-image: linear-gradient(to right, #ebb05d, #E76F51);
   border: solid 2px #264653;
+  cursor: pointer;
   width: 70%;
   align-items: center;
   display: flex;
