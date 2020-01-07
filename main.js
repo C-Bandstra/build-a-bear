@@ -46,13 +46,22 @@ function disableSaveBtn(){
 }
 
 function createCard(){
-  outfitName = nameInput.value;
-  createCardInHtml(nameInput.value)
-  nameInput.value = '';
-  disableSaveBtn();
-  clearAllBtns();
-  console.log(outfitName);
-  saveOutfit(outfitName);
+  if (outfit.title===nameInput.value){
+    outfitName = nameInput.value;
+    nameInput.value = '';
+    disableSaveBtn();
+    clearAllBtns();
+    console.log(outfitName);
+    saveOutfit(outfitName);
+  } else {
+    outfitName = nameInput.value;
+    createCardInHtml(nameInput.value)
+    nameInput.value = '';
+    disableSaveBtn();
+    clearAllBtns();
+    console.log(outfitName);
+    saveOutfit(outfitName);
+  }
 }
 
 function createCardInHtml(displayValue) {
@@ -312,6 +321,7 @@ function populateInput(event) {
     var bearType;
     for(let i = 0, len = values.length; i < len; i++) {
     var item = JSON.parse(values[i]);
+    debugger
     if (item.title === outfitTitle) {
       bearType = item;
        }
@@ -319,6 +329,7 @@ function populateInput(event) {
   if(bearType) {
         if(bearType.background !== '') {
           document.getElementById(bearType.background).click();
+              debugger
           saveBtn.disabled = false;
         }
     }
@@ -327,4 +338,9 @@ function populateInput(event) {
           saveBtn.disabled = false;
         }
         console.log(bearType.garments);
+  resetID(bearType);
+}
+
+function resetID(bearType){
+  outfit= (new Outfit(bearType.id, bearType.title, bearType.garments, bearType.background));
 }
