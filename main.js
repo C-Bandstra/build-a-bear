@@ -293,6 +293,10 @@ function removeSavedOutfit(event){
       console.log('remove saved outfit');
       clearAllBtns();
     }
+
+  else if (event.target.classList.contains('card-container')) {
+      return false;
+  }
      else {
     populateInput(event);
   }
