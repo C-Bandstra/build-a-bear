@@ -121,10 +121,10 @@ function styleBearAccessories() {
   styleBear(showAccessoriesImage);
 }
 
-function styleBearBackgrounds () {
+function styleBearBackgrounds() {
   var item = event.target.getAttribute('id');
   outfit.background = item;
-  pickCategory();
+  highlightButton(event);
   if(!event.target.classList.contains('highlight')){
     outfit.background='';
   }
@@ -132,20 +132,6 @@ function styleBearBackgrounds () {
     showBackgroundImage();
   }
 }
-
-// function pickCategory(clickedItem) {
-//   if(event.target.classList.contains('hat-button')) {
-//     highlightHatButton('');
-  // } else if(event.target.classList.contains('clothes-button')) {
-  //     highlightClothesButton(event);
-  // } else if(event.target.classList.contains('accessories-button')) {
-  //     highlightAccessoriesButton(event);
-  // } else if(event.target.classList.contains('backgrounds-button')) {
-  //     highlightBackgroundsButton(event);
-  // }
-// }
-
-// click a button that checks
 
 function highlightButton(event) {
   var buttonNodeList = event.target.parentElement.querySelectorAll('button');
@@ -155,50 +141,6 @@ function highlightButton(event) {
   } else {
     for(var i = 0; i < buttonNodeList.length; i++) {
       buttonNodeList[i].classList.remove('highlight');
-    }
-    event.target.classList.add('highlight');
-  }
-}
-
-function highlightHatButton() {
-  if(event.target.classList.contains('highlight')) {
-    event.target.classList.remove('highlight');
-  } else {
-    for(var i = 0; i < hatBtns.length; i++) {
-      hatBtns[i].classList.remove('highlight');
-    }
-    event.target.classList.add('highlight');
-  }
-}
-
-function highlightClothesButton() {
-  if(event.target.classList.contains('highlight')) {
-    event.target.classList.remove('highlight');
-  } else {
-    for(var i = 0; i < clothesBtns.length; i++) {
-      clothesBtns[i].classList.remove('highlight');
-    }
-    event.target.classList.add('highlight');
-  }
-}
-
-function highlightAccessoriesButton() {
-  if(event.target.classList.contains('highlight')) {
-    event.target.classList.remove('highlight');
-  } else {
-    for(var i = 0; i < accessoriesBtns.length; i++) {
-    accessoriesBtns[i].classList.remove('highlight');
-    }
-    event.target.classList.add('highlight');
-  }
-}
-
-function highlightBackgroundsButton() {
-  if(event.target.classList.contains('highlight')) {
-    event.target.classList.remove('highlight');
-  } else {
-    for(var i = 0; i < backgroundBtns.length; i++) {
-      backgroundBtns[i].classList.remove('highlight');
     }
     event.target.classList.add('highlight');
   }
