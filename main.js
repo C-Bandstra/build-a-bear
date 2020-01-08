@@ -102,7 +102,8 @@ function styleBear(style) {
   if(!event.target.classList.contains('highlight')) {
     outfit.addGarment(item);
   }
-  pickCategory();
+  // pickCategory(clickedItem);
+  highlightButton(event);
   if(event.target.tagName == 'BUTTON') {
     style();
   }
@@ -132,15 +133,30 @@ function styleBearBackgrounds () {
   }
 }
 
-function pickCategory() {
-  if(event.target.classList.contains('hat-button')) {
-    highlightHatButton(event);
-  } else if(event.target.classList.contains('clothes-button')) {
-      highlightClothesButton(event);
-  } else if(event.target.classList.contains('accessories-button')) {
-      highlightAccessoriesButton(event);
-  } else if(event.target.classList.contains('backgrounds-button')) {
-      highlightBackgroundsButton(event);
+// function pickCategory(clickedItem) {
+//   if(event.target.classList.contains('hat-button')) {
+//     highlightHatButton('');
+  // } else if(event.target.classList.contains('clothes-button')) {
+  //     highlightClothesButton(event);
+  // } else if(event.target.classList.contains('accessories-button')) {
+  //     highlightAccessoriesButton(event);
+  // } else if(event.target.classList.contains('backgrounds-button')) {
+  //     highlightBackgroundsButton(event);
+  // }
+// }
+
+// click a button that checks
+
+function highlightButton(event) {
+  var buttonNodeList = event.target.parentElement.querySelectorAll('button');
+  debugger
+  if(event.target.classList.contains('highlight')) {
+    event.target.classList.remove('highlight');
+  } else {
+    for(var i = 0; i < buttonNodeList.length; i++) {
+      buttonNodeList[i].classList.remove('highlight');
+    }
+    event.target.classList.add('highlight');
   }
 }
 
@@ -188,6 +204,16 @@ function highlightBackgroundsButton() {
   }
 }
 
+function showImages() {
+  for(var i = 0; i < hatImages.length; i++) {
+    if((hatImages[i].classList.contains('show-image')) && (hatImages[i].classList.contains('hat'))) {
+      hatImages[i].classList.remove('show-image');
+    } else if(hatImages[i].id === event.target.dataset.id) {
+      hatImages[i].classList.add('show-image');
+    }
+  }
+}
+
 function showHatImage() {
   for(var i = 0; i < hatImages.length; i++) {
     if((hatImages[i].classList.contains('show-image')) && (hatImages[i].classList.contains('hat'))) {
@@ -228,32 +254,6 @@ function showBackgroundImage() {
   }
 }
 
-// function highlightButton(){
-  // var activeButton = event.target;
-  //   console.log(activeButton);
-  //   console.log(event)
-  //   var test = ('.'+ activeButton);
-  // var garment = document.querySelectorAll(`.${activeButton}`);
-  //   console.log(test);
-  //   activeButton.classList.remove('highlight');
-  // event.target.classList.add('highlight');
-  //   console.log(event);
-
-  //   var hats = document.querySelector('.hats');
-  //   var hatBtn = hats.getElementsByClassName('hat-button');
-  //
-  //   function test() {
-  //   for (var i = 0; i < hatBtn.length; i++) {
-  //     hatBtn[i].addEventListener('click', function() {
-  //       var activeHatBtn = document.getElementsByClassName('highlight');
-  //       activeHatBtn[0].className = activeHatBtn[0].className.replace('highlight', '');
-  //       this.className += 'highlight';
-  //     });
-  //   }
-  // }
-
-// }
-
 function createOutfit(id) {
   outfit = new Outfit(id);
   closet.push(outfit);
@@ -279,7 +279,7 @@ function loadSavedOutfits(){
   })
 }
 //maybe rename to handleCardClick
-//remo
+
 function removeSavedOutfit(event){
   if(event.target.classList.contains('close-icon')){
 
@@ -315,23 +315,21 @@ function populateInput(event) {
     redressBear(outfitTitle);
  }
 //     //trigger click events on appropriate buttons
-  function redressBear(outfitTitle) {
-    var values = Object.values(localStorage);
-    var bearType;
-    for(let i = 0, len = values.length; i < len; i++) {
+function redressBear(outfitTitle) {
+  var values = Object.values(localStorage);
+  var bearType;
+  for(let i = 0, len = values.length; i < len; i++) {
     var item = JSON.parse(values[i]);
-    debugger
     if(item.title === outfitTitle) {
-      bearType = item;
-       }
+    bearType = item;
      }
+  }
   if(bearType) {
-        if(bearType.background !== '') {
-          document.getElementById(bearType.background).click();
-              debugger
-          saveBtn.disabled = false;
-        }
+    if(bearType.background !== '') {
+      document.getElementById(bearType.background).click();
+      saveBtn.disabled = false;
     }
+  }
   for(let i = 0, len = bearType.garments.length; i < len; i++) {
           document.getElementById(bearType.garments[i]).click();
           saveBtn.disabled = false;
