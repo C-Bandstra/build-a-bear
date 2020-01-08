@@ -1,4 +1,3 @@
-
 var closet = [];
 var outfit
 var outfitName
@@ -102,7 +101,7 @@ function styleBear(style) {
   if(!event.target.classList.contains('highlight')) {
     outfit.addGarment(item);
   }
-  // pickCategory(clickedItem);
+
   highlightButton(event);
   if(event.target.tagName == 'BUTTON') {
     style();
@@ -135,7 +134,6 @@ function styleBearBackgrounds() {
 
 function highlightButton(event) {
   var buttonNodeList = event.target.parentElement.querySelectorAll('button');
-  debugger
   if(event.target.classList.contains('highlight')) {
     event.target.classList.remove('highlight');
   } else {
@@ -220,32 +218,21 @@ function loadSavedOutfits(){
     closet.push(new Outfit(outfitObj.id, outfitObj.title, outfitObj.garments, outfitObj.background));
   })
 }
-//maybe rename to handleCardClick
 
 function removeSavedOutfit(event){
   if(event.target.classList.contains('close-icon')){
-
-      event.target.parentElement.remove();
-      localStorage.removeItem(event.target.parentElement.innerText.trim());
-      console.log('remove saved outfit');
-      clearAllBtns();
-    }
-
-  else if(event.target.classList.contains('card-container')) {
-      return false;
-  }
-     else {
+    event.target.parentElement.remove();
+    localStorage.removeItem(event.target.parentElement.innerText.trim());
+    clearAllBtns();
+  } else if(event.target.classList.contains('card-container')) {
+    return false;
+  } else {
     populateInput(event);
   }
-
-  }
+}
 
 function populateInput(event) {
-  console.log('populate event');
-     //remove all clothes from BEAR
-     //remove all highlights from buttons
     clearAllBtns();
-     //fill in input field with card title
     var outfitTitle;
     if(event.target.classList.contains('outfit-name')) {
     outfitTitle = event.target.innerHTML;
@@ -256,7 +243,7 @@ function populateInput(event) {
     nameInput.value = outfitTitle;
     redressBear(outfitTitle);
  }
-//     //trigger click events on appropriate buttons
+
 function redressBear(outfitTitle) {
   var values = Object.values(localStorage);
   var bearType;
@@ -273,10 +260,9 @@ function redressBear(outfitTitle) {
     }
   }
   for(let i = 0, len = bearType.garments.length; i < len; i++) {
-          document.getElementById(bearType.garments[i]).click();
-          saveBtn.disabled = false;
-        }
-        console.log(bearType.garments);
+    document.getElementById(bearType.garments[i]).click();
+    saveBtn.disabled = false;
+  }
   resetID(bearType);
 }
 
