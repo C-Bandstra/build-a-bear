@@ -5,7 +5,6 @@ var outfitName
 var cardContainer = document.querySelector('.card-container');
 
 document.onload = onPageLoad();
-//rename backt to outfits before turning it//
 
 var saveBtn = document.querySelector('#save-button');
 var nameInput = document.querySelector('input');
@@ -30,11 +29,6 @@ saveBtn.addEventListener('click', createCard);
 nameInput.addEventListener('input', disableSaveBtn);
 cardContainer.addEventListener('click', removeSavedOutfit);
 
-
-
-// function saveOutfit (){
-//   createCard();
-// }
 disableSaveBtn();
 
 function disableSaveBtn(){
@@ -49,19 +43,19 @@ function createCard(){
   if (outfit.title===nameInput.value){
     outfitName = nameInput.value;
     nameInput.value = '';
-    disableSaveBtn();
-    clearAllBtns();
-    console.log(outfitName);
-    saveOutfit(outfitName);
+    resetBear(outfitName);
   } else {
     outfitName = nameInput.value;
-    createCardInHtml(nameInput.value)
-    nameInput.value = '';
-    disableSaveBtn();
-    clearAllBtns();
-    console.log(outfitName);
-    saveOutfit(outfitName);
+    createCardInHtml(nameInput.value);
+    resetBear(outfitName);
   }
+}
+
+function resetBear(outfitName) {
+  nameInput.value = '';
+  disableSaveBtn();
+  clearAllBtns();
+  saveOutfit(outfitName);
 }
 
 function createCardInHtml(displayValue) {
