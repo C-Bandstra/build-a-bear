@@ -59,11 +59,12 @@ function resetBear(outfitName) {
 }
 
 function createCardInHtml(displayValue) {
-  cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">
-              <h2 class="outfit-name">${displayValue}</h2>
-              <img class="close-icon"
-              src="http://icons.iconarchive.com/icons/iconsmind/outline/512/Close-icon.png">
-           </div>`);
+  cardContainer.insertAdjacentHTML('afterbegin',
+  `<div class="card">
+    <h2 class="outfit-name">${displayValue}</h2>
+    <img class="close-icon"
+    src="http://icons.iconarchive.com/icons/iconsmind/outline/512/Close-icon.png">
+  </div>`);
 }
 
 function saveOutfit(){
