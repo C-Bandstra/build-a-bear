@@ -17,4 +17,9 @@ Outfit Example 2:
 
 Click [Here](https://github.com/C-Bandstra/build-a-bear)
 
+## Contributers
+
+[Charlie Bandstra](https://github.com/C-Bandstra)
+[Mandy Alford](https://github.com/MandyAlford)
+[Olivia Webster](https://github.com/oliviacweb)
 
