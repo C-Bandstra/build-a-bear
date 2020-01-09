@@ -8,11 +8,11 @@
 
 header {
   background-image: linear-gradient(to right, #E76F51, #E9C46A, #E76F51);
+  border-bottom: solid 2px #264653;
   color: #264653;
   font-family: 'Schoolbell';
   font-size: 2em;
   text-align: center;
-  border-bottom: solid 2px #264653;
 }
 
 img {
@@ -21,79 +21,79 @@ img {
 }
 
 .bear-img {
-  height: 550px;
-  width: 550px;
-  position: relative;
   bottom: 15px;
+  height: 550px;
+  position: relative;
+  width: 550px;
   z-index: 1;
 }
 
 .hat {
   height: 150px;
-  width: 150px;
   position: absolute;
   left: 47%;
   top: 9%;
+  width: 150px;
   z-index: 2;
 }
 
 .tophat-img {
-  transform: rotate(23deg);
-  position: absolute;
   left: 48%
+  position: absolute;
+  transform: rotate(23deg);
 }
 
 .sunhat-img {
-  position: absolute;
   height: 200px;
-  width: auto;
-  top: 10%;
   left: 44%;
+  position: absolute;
+  top: 10%;
   transform: rotate(-9deg);
+  width: auto;
 }
 
 .hairbow-img {
-  position: absolute;
-  transform: rotate(18deg);
-  top: 17%;
   height: 75px;
+  position: absolute;
+  top: 17%;
+  transform: rotate(18deg);
 }
 
 .crown-img {
-  transform: rotate(23deg);
-  position: absolute;
   left: 48%;
+  position: absolute;
+  transform: rotate(23deg);
 }
 
 .spacehelmet-img {
-  position: absolute;
   height: 271px;
-  width: 328px;
-  transform: rotate(12deg);
   left: 39%;
+  position: absolute;
   top: 12%;
+  transform: rotate(12deg);
+  width: 328px;
 }
 
 .tops {
-  position: absolute;
-  left: 33%;
-  top: 20%;
   height: 476px;
+  left: 33%;
+  position: absolute;
+  top: 20%;
   width: auto;
   z-index: 2;
 }
 
 .vest-img {
   height: 600px;
-  width: auto;
-  position: absolute;
   left: 29%;
+  position: absolute;
   top: 12%;
+  width: auto;
 }
 
 .accessory {
-  position: absolute;
   left: 43%;
+  position: absolute;
   top: 46%;
   transform: rotate(10deg);
   z-index: 2;
@@ -101,37 +101,37 @@ img {
 
 .bowtie-img {
   height: 100px;
-  width: auto;
+  left: 44%;
   position: absolute;
   top: 44%;
-  left: 44%;
+  width: auto;
 }
 
 .smartwatch-img {
   height: 92px;
-  width: auto;
-  top: 38%;
   left: 36%;
+  top: 38%;
   transform: rotate(70deg);
+  width: auto;
 }
 
 .bckgrnd {
-  position: absolute;
-  z-index: 0;
   height: 75%;
-  width: 33%;
   left: 33%;
-  top: 3%;
   margin-top: 5%;
+  position: absolute;
+  top: 3%;
+  width: 33%;
+  z-index: 0;
 
 }
 main {
+  background-color: #FAEACB;
   display: grid;
   grid-template-columns: 30% 40% 30%;
   grid-template-rows: 25% 25% 25% 25%;
   min-height: 2780px;
   z-index: -1;
-  background-color: #FAEACB;
 }
 
 .garment-header {
@@ -147,15 +147,15 @@ main {
 .clothes-button,
 .accessories-button,
 .backgrounds-button {
-  height: 28%;
-  width: 20%;
   border-radius: 43%;
+  box-shadow: 3px 5px;
   font-size: 1.30em;
   font-weight: bold;
-  box-shadow: 3px 5px;
-  margin-top: 3%;
-  margin-right: 2%;
+  height: 28%;
   margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 3%;
+  width: 20%;
 }
 
 .hat-button {
@@ -228,9 +228,9 @@ main {
 }
 
 .outfit-input {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   min-height: 20px;
   text-align: center;
 }
@@ -251,23 +251,23 @@ main {
 }
 
 .card-container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .card {
+  align-items: center;
   background-image: linear-gradient(to right, #ebb05d, #E76F51);
   border: solid 2px #264653;
+  box-shadow: 3px 3px;
   cursor: pointer;
-  width: 70%;
-  align-items: center;
   display: flex;
   flex-direction: row;
-  margin-top: 7%;
   height: 4em;
-  box-shadow: 3px 3px;
   justify-content: space-between;
+  margin-top: 7%;
+  width: 70%;
 }
 
 .outfit-name {
@@ -276,10 +276,10 @@ main {
 }
 
 .close-icon {
-  margin: 0;
-  height: 25px;
-  width: 25px;
   display: inline-block;
+  height: 25px;
+  margin: 0;
+  width: 25px;
 
 }
 
