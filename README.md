@@ -19,7 +19,7 @@ Click [Here](https://github.com/C-Bandstra/build-a-bear)
 
 ## Contributers
 
-[Charlie Bandstra](https://github.com/C-Bandstra)
-[Mandy Alford](https://github.com/MandyAlford)
-[Olivia Webster](https://github.com/oliviacweb)
+[Charlie Bandstra](https://github.com/C-Bandstra) </br>
+[Mandy Alford](https://github.com/MandyAlford) </br>
+[Olivia Webster](https://github.com/oliviacweb) </br>
 
