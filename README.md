@@ -6,7 +6,7 @@ Build-A-Bear is a simple family-friendly game that allows you to add different c
 
 ## Examples of the application in use
 
-[Imgur](https://i.imgur.com/yO1x6XU.png)
+<img href="https://imgur.com/yO1x6XU"><img src="https://i.imgur.com/yO1x6XU.png" title="source: imgur.com" />
 
 ## Download and Use
 
