@@ -15,6 +15,6 @@ Outfit Example 2:
 
 ## Link to Project
 
-Click [Here] (https://github.com/C-Bandstra/build-a-bear)
+Click [Here](https://github.com/C-Bandstra/build-a-bear)
 
 
