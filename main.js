@@ -133,15 +133,17 @@ function styleBearBackgrounds() {
 }
 
 function highlightButton(event) {
-  var buttonNodeList = event.target.parentElement.querySelectorAll('button');
-  if(event.target.classList.contains('highlight')) {
-    event.target.classList.remove('highlight');
-  } else {
-    for(var i = 0; i < buttonNodeList.length; i++) {
+ if(event.target.tagName == 'BUTTON') {
+   var buttonNodeList = event.target.parentElement.querySelectorAll('button');
+   if(event.target.classList.contains('highlight')) {
+     event.target.classList.remove('highlight');
+   } else {
+     for(var i = 0; i < buttonNodeList.length; i++) {
       buttonNodeList[i].classList.remove('highlight');
     }
     event.target.classList.add('highlight');
   }
+ }
 }
 
 function showImages() {
