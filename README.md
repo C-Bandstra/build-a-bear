@@ -6,10 +6,15 @@ Build-A-Bear is a simple family-friendly game that allows you to add different c
 
 ## Examples of the application in use
 
+This is what the website and bear look like when you first load it
 <img href="https://imgur.com/yO1x6XU"><img src="https://i.imgur.com/yO1x6XU.png" title="source: imgur.com" />
+Outfit Example 1:
+<img href="https://imgur.com/AnGIWeu"><img src="https://i.imgur.com/AnGIWeu.png" title="source: imgur.com" />
+Outfit Example 2:
+<img href="https://imgur.com/90psgyP"><img src="https://i.imgur.com/90psgyP.png" title="source: imgur.com" />
 
-## Download and Use
+## Link to Project
 
-Click [Here] ()
+Click [Here] (https://github.com/C-Bandstra/build-a-bear)
 
 
